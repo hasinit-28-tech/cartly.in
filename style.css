@@ -21,20 +21,6 @@ body {
   border: none;
 }
 
-.cart-icon {
-  position: relative;
-}
-
-#cart-count {
-  position: absolute;
-  top: -8px;
-  right: -12px;
-  background: red;
-  padding: 3px 7px;
-  border-radius: 50%;
-  font-size: 12px;
-}
-
 /* HERO */
 .hero {
   background: linear-gradient(to right, #ff9900, #ff6600);
@@ -78,8 +64,9 @@ body {
   margin-left: 20px;
 }
 
-/* 🔥 PREMIUM CARD */
+/* PRODUCT CARD */
 .product {
+  position: relative;
   background: white;
   margin: 15px;
   padding: 15px;
@@ -101,11 +88,18 @@ body {
   border-radius: 10px;
 }
 
-/* ⭐ Rating */
 .rating {
   color: #ff9900;
   margin: 5px 0;
-  font-size: 14px;
+}
+
+/* WISHLIST HEART */
+.wishlist {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 /* BUTTON */
@@ -116,4 +110,169 @@ button {
   padding: 8px;
   margin-top: 5px;
   border-radius: 5px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  background: white;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 8px;
+}
+#wishlist-items {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+.auth-box {
+  background: white;
+  padding: 20px;
+  width: 300px;
+  margin: 50px auto;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.auth-box input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
+}
+/* LOGIN HEADER */
+.login-header {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.login-header h1 {
+  font-size: 32px;
+  color: #ff9900;
+  margin-bottom: 5px;
+}
+
+.login-header p {
+  color: gray;
+  font-size: 14px;
+}
+
+/* AUTH BOX */
+.auth-box {
+  background: white;
+  padding: 20px;
+  width: 300px;
+  margin: 30px auto;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.auth-box input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+
+}
+.password-box {
+  position: relative;
+}
+
+.password-box input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
+}
+
+.password-box span {
+  position: absolute;
+  right: 25px;
+  top: 18px;
+  cursor: pointer;
+}
+.password-box {
+  position: relative;
+}
+
+.password-box input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
+}
+
+.password-box span {
+  position: absolute;
+  right: 25px;
+  top: 18px;
+  cursor: pointer;
+}
+
+#strength-text {
+  font-size: 12px;
+  margin-top: -5px;
+}
+.rules-box {
+  background: #f9f9f9;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 13px;
+}
+
+.emoji-suggest {
+  font-size: 12px;
+  color: gray;
+  margin-bottom: 10px;
+}
+/* 🌙 DARK MODE */
+.dark {
+  background: #121212;
+  color: white;
+}
+
+.dark .auth-box {
+  background: #1e1e1e;
+}
+
+/* 🌙 BUTTON */
+.dark-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* 👁️ */
+.password-box {
+  position: relative;
+}
+
+.password-box span {
+  position: absolute;
+  right: 20px;
+  top: 12px;
+  cursor: pointer;
+}
+
+/* 📊 STRENGTH BAR */
+.strength-bar {
+  width: 90%;
+  height: 8px;
+  background: #ddd;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+
+#strength-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 5px;
+  transition: 0.3s;
 }

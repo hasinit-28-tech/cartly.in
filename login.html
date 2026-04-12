@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login - Cartly.in</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 🌙 DARK MODE TOGGLE -->
+<button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
+
+<div class="login-header">
+  <h1>🛒 Cartly.in</h1>
+  <p>Your Smart Shopping App</p>
+</div>
+
+<div class="auth-box">
+  <h2>🔐 Login / Signup</h2>
+
+  <input type="text" id="username" placeholder="Username"><br>
+
+  <!-- PASSWORD -->
+  <div class="password-box">
+    <input type="password" id="password" placeholder="Password" onkeyup="validatePassword()">
+    <span id="eye" onclick="togglePassword()">👁️</span>
+  </div>
+
+  <input type="password" id="confirm-password" placeholder="Confirm Password"><br>
+
+  <!-- 📊 STRENGTH BAR -->
+  <div class="strength-bar">
+    <div id="strength-fill"></div>
+  </div>
+
+  <!-- RULES -->
+  <div class="rules-box">
+    <p id="length-rule">❌ At least 6 characters</p>
+    <p id="emoji-rule">❌ Must include emoji 😄</p>
+  </div>
+
+  <button onclick="signup()">Signup</button>
+  <button onclick="login()">Login</button>
+
+</div>
+
+<script src="auth.js"></script>
+</body>
+</html>

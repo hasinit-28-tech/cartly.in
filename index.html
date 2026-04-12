@@ -17,8 +17,13 @@
     onkeyup="applyFilters()"
   />
 
-  <div class="cart-icon">
-    🛒 <span id="cart-count">0</span>
+  <div>
+    <span id="user-name"></span>
+    <button onclick="goToWishlist()">❤️</button>
+    <button onclick="logout()">Logout</button>
+    <span class="cart-icon">
+      🛒 <span id="cart-count">0</span>
+    </span>
   </div>
 </div>
 
@@ -42,12 +47,9 @@
     <button onclick="setSort('high')">⬇ High → Low</button>
   </div>
 
-  <!-- PRODUCTS -->
   <div id="products"></div>
-
 </div>
 
-<!-- CART -->
 <h2>Cart</h2>
 <ul id="cart"></ul>
 
