@@ -108,3 +108,29 @@ function login() {
 function toggleDarkMode() {
   document.body.classList.toggle("dark");
 }
+// 🔐 GOOGLE LOGIN (DEMO)
+function googleLogin() {
+  const demoUser = {
+    username: "GoogleUser",
+    password: "google123"
+  };
+
+  localStorage.setItem("user", JSON.stringify(demoUser));
+  localStorage.setItem("loggedIn", true);
+
+  alert("Logged in with Google 🎉");
+  window.location.href = "index.html";
+}
+// 🔐 GOOGLE LOGIN (DEMO)
+function googleLogin() {
+  const demoUser = {
+    username: "GoogleUser",
+    password: "google123"
+  };
+
+  localStorage.setItem("user", JSON.stringify(demoUser));
+  localStorage.setItem("loggedIn", true);
+
+  alert("Logged in with Google 🎉");
+  window.location.href = "index.html";
+}

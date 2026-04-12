@@ -6,9 +6,6 @@
 </head>
 <body>
 
-<!-- 🌙 DARK MODE TOGGLE -->
-<button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
-
 <div class="login-header">
   <h1>🛒 Cartly.in</h1>
   <p>Your Smart Shopping App</p>
@@ -19,27 +16,20 @@
 
   <input type="text" id="username" placeholder="Username"><br>
 
-  <!-- PASSWORD -->
   <div class="password-box">
-    <input type="password" id="password" placeholder="Password" onkeyup="validatePassword()">
-    <span id="eye" onclick="togglePassword()">👁️</span>
+    <input type="password" id="password" placeholder="Password">
+    <span onclick="togglePassword()">👁️</span>
   </div>
 
   <input type="password" id="confirm-password" placeholder="Confirm Password"><br>
 
-  <!-- 📊 STRENGTH BAR -->
-  <div class="strength-bar">
-    <div id="strength-fill"></div>
-  </div>
-
-  <!-- RULES -->
-  <div class="rules-box">
-    <p id="length-rule">❌ At least 6 characters</p>
-    <p id="emoji-rule">❌ Must include emoji 😄</p>
-  </div>
-
   <button onclick="signup()">Signup</button>
   <button onclick="login()">Login</button>
+
+  <hr>
+
+  <!-- 🔥 GOOGLE LOGIN -->
+  <button onclick="googleLogin()">🔐 Continue with Google</button>
 
 </div>
 

@@ -276,3 +276,31 @@ li {
   border-radius: 5px;
   transition: 0.3s;
 }
+.google-btn {
+  width: 90%;
+  padding: 10px;
+  margin-top: 10px;
+  background: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.google-btn:hover {
+  background: #f5f5f5;
+}
+.google-btn {
+  width: 90%;
+  padding: 10px;
+  margin-top: 10px;
+  background: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.google-btn:hover {
+  background: #f5f5f5;
+}
