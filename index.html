@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cartly.in</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 🧭 NAVBAR -->
+<div class="navbar">
+  <h2>🛒 Cartly.in</h2>
+
+  <input 
+    type="text" 
+    id="search" 
+    placeholder="🔍 Search products..." 
+    onkeyup="applyFilters()"
+  />
+
+  <div class="cart-icon">
+    🛒 <span id="cart-count">0</span>
+  </div>
+</div>
+
+<!-- 🎯 HERO BANNER -->
+<div class="hero">
+  <h1>Big Deals on Fashion 🔥</h1>
+  <p>Up to 50% OFF</p>
+</div>
+
+<div class="container">
+
+  <!-- 📂 SIDEBAR -->
+  <div class="sidebar">
+    <h3>🧾 Categories</h3>
+    <button onclick="setCategory('All', this)" class="active">All</button>
+    <button onclick="setCategory('Clothes', this)">👔 Clothes</button>
+    <button onclick="setCategory('Accessories', this)">⌚ Accessories</button>
+
+    <h3>💰 Sort</h3>
+    <button onclick="setSort('low')">⬆ Low → High</button>
+    <button onclick="setSort('high')">⬇ High → Low</button>
+  </div>
+
+  <!-- 🛍 PRODUCTS -->
+  <div id="products"></div>
+
+</div>
+
+<h2>Cart</h2>
+<ul id="cart"></ul>
+
+<h3>Total: ₹<span id="total">0</span></h3>
+
+<button onclick="goToCheckout()">Proceed to Checkout 💳</button>
+
+<script src="script.js"></script>
+</body>
+</html>

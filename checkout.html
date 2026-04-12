@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkout - Cartly.in</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>💳 Checkout</h1>
+
+<h2>Your Items</h2>
+<ul id="checkout-items"></ul>
+
+<h3>Total: ₹<span id="checkout-total">0</span></h3>
+
+<!-- 💳 PAYMENT OPTIONS -->
+<h2>Select Payment Method</h2>
+
+<div class="payment">
+
+  <label>
+    <input type="radio" name="payment" value="upi" checked onchange="showPayment()">
+    📱 UPI
+  </label>
+
+  <label>
+    <input type="radio" name="payment" value="card" onchange="showPayment()">
+    💳 Card
+  </label>
+
+</div>
+
+<!-- 📱 UPI SECTION -->
+<div id="upi-section">
+  <input type="text" placeholder="Enter UPI ID (example@upi)">
+</div>
+
+<!-- 💳 CARD SECTION -->
+<div id="card-section" style="display:none;">
+  <input type="text" placeholder="Card Number"><br>
+  <input type="text" placeholder="Expiry (MM/YY)"><br>
+  <input type="text" placeholder="CVV">
+</div>
+
+<br>
+
+<button onclick="placeOrder()">✅ Pay & Place Order</button>
+
+<script src="checkout.js"></script>
+</body>
+</html>
