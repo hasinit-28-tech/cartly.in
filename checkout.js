@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let total = JSON.parse(localStorage.getItem("total")) || 0;
 
@@ -12,6 +11,7 @@ cart.forEach(item => {
   list.appendChild(li);
 });
 
+// Show total
 totalSpan.textContent = total;
 
 // 🔄 Switch payment UI
@@ -33,40 +33,4 @@ function placeOrder() {
   localStorage.removeItem("total");
 
   window.location.href = "index.html";
-=======
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-let total = JSON.parse(localStorage.getItem("total")) || 0;
-
-const list = document.getElementById("checkout-items");
-const totalSpan = document.getElementById("checkout-total");
-
-// Show items
-cart.forEach(item => {
-  const li = document.createElement("li");
-  li.textContent = `${item.name} - ₹${item.price}`;
-  list.appendChild(li);
-});
-
-totalSpan.textContent = total;
-
-// 🔄 Switch payment UI
-function showPayment() {
-  const method = document.querySelector('input[name="payment"]:checked').value;
-
-  document.getElementById("upi-section").style.display =
-    method === "upi" ? "block" : "none";
-
-  document.getElementById("card-section").style.display =
-    method === "card" ? "block" : "none";
-}
-
-// 💳 Place order
-function placeOrder() {
-  alert("🎉 Payment Successful! Order Placed.");
-
-  localStorage.removeItem("cart");
-  localStorage.removeItem("total");
-
-  window.location.href = "index.html";
->>>>>>> 6bc390ea62c2d58cbaedcf6da43f387efca4ae90
 }

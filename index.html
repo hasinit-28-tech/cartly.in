@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +6,7 @@
 </head>
 <body>
 
-<!-- 🧭 NAVBAR -->
+<!-- NAVBAR -->
 <div class="navbar">
   <h2>🛒 Cartly.in</h2>
 
@@ -23,7 +22,7 @@
   </div>
 </div>
 
-<!-- 🎯 HERO BANNER -->
+<!-- HERO -->
 <div class="hero">
   <h1>Big Deals on Fashion 🔥</h1>
   <p>Up to 50% OFF</p>
@@ -31,7 +30,7 @@
 
 <div class="container">
 
-  <!-- 📂 SIDEBAR -->
+  <!-- SIDEBAR -->
   <div class="sidebar">
     <h3>🧾 Categories</h3>
     <button onclick="setCategory('All', this)" class="active">All</button>
@@ -43,11 +42,12 @@
     <button onclick="setSort('high')">⬇ High → Low</button>
   </div>
 
-  <!-- 🛍 PRODUCTS -->
+  <!-- PRODUCTS -->
   <div id="products"></div>
 
 </div>
 
+<!-- CART -->
 <h2>Cart</h2>
 <ul id="cart"></ul>
 
@@ -57,62 +57,4 @@
 
 <script src="script.js"></script>
 </body>
-=======
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Cartly.in</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<!-- Header -->
-<div class="header">
-  <h1>🛒 Cartly.in</h1>
-  <div class="cart-icon">
-    🛒 <span id="cart-count">0</span>
-  </div>
-</div>
-
-<!-- Search -->
-<div class="search-box">
-  <input 
-    type="text" 
-    id="search" 
-    placeholder="🔍 Search products..." 
-    onkeyup="applyFilters()"
-  />
-</div>
-
-<div class="container">
-
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <h3>🧾 Categories</h3>
-    <button onclick="setCategory('All', this)" class="active">All</button>
-    <button onclick="setCategory('Clothes', this)">👔 Clothes</button>
-    <button onclick="setCategory('Accessories', this)">⌚ Accessories</button>
-
-    <h3>💰 Sort</h3>
-    <button onclick="setSort('low')">⬆ Low → High</button>
-    <button onclick="setSort('high')">⬇ High → Low</button>
-  </div>
-
-  <!-- Products -->
-  <div id="products"></div>
-
-</div>
-
-<!-- Cart -->
-<h2>Cart</h2>
-<ul id="cart"></ul>
-
-<h3>Total: ₹<span id="total">0</span></h3>
-
-<!-- ✅ CHECKOUT BUTTON -->
-<button onclick="goToCheckout()">Proceed to Checkout 💳</button>
-
-<script src="script.js"></script>
-</body>
->>>>>>> 6bc390ea62c2d58cbaedcf6da43f387efca4ae90
 </html>
