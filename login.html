@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login - Cartly.in</title>
+  <title>Login</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="login-header">
-  <h1>🛒 Cartly.in</h1>
-  <p>Your Smart Shopping App</p>
+<div class="navbar">
+  <h2>🛒 Cartly.in</h2>
+  <button onclick="toggleDarkMode()">🌙</button>
 </div>
 
-<div class="auth-box">
-  <h2>🔐 Login / Signup</h2>
+<div class="login-wrapper">
+  <div class="login-box">
 
-  <input type="text" id="username" placeholder="Username"><br>
+    <h2>Login</h2>
 
-  <div class="password-box">
+    <input type="text" id="username" placeholder="Username">
     <input type="password" id="password" placeholder="Password">
-    <span onclick="togglePassword()">👁️</span>
+
+    <button onclick="login()">Login</button>
+
+    <p id="error"></p>
+
   </div>
-
-  <input type="password" id="confirm-password" placeholder="Confirm Password"><br>
-
-  <button onclick="signup()">Signup</button>
-  <button onclick="login()">Login</button>
-
-  <hr>
-
-  <!-- 🔥 GOOGLE LOGIN -->
-  <button onclick="googleLogin()">🔐 Continue with Google</button>
-
 </div>
 
-<script src="auth.js"></script>
+<script>
+function login() {
+  const user = document.getElementById("username").value;
+  const pass = document.getElementById("password").value;
+
+  if (user === "admin" && pass === "1234") {
+    localStorage.setItem("loggedIn", "true");
+    window.location.href = "index.html";
+  } else {
+    document.getElementById("error").innerText = "Invalid Credentials ❌";
+  }
+}
+</script>
+
+<script src="script.js"></script>
+
 </body>
 </html>

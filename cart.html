@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Wishlist</title>
+  <title>Cart</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,20 +10,25 @@
   <h2>🛒 Cartly.in</h2>
   <div>
     <a href="index.html">🏠 Home</a>
-    <a href="cart.html">🛍 Cart</a>
+    <a href="wishlist.html">❤️ Wishlist</a>
     <button onclick="toggleDarkMode()">🌙</button>
   </div>
 </div>
 
-<h2>Your Wishlist</h2>
+<h2>Your Cart</h2>
 
-<div class="products" id="wishlist-container"></div>
+<div class="products" id="cart-container"></div>
+
+<h2 id="total"></h2>
 
 <script>
-let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-let container = document.getElementById("wishlist-container");
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let container = document.getElementById("cart-container");
+let total = 0;
 
-wishlist.forEach(item => {
+cart.forEach(item => {
+  total += item.price;
+
   container.innerHTML += `
     <div class="card">
       <img src="${item.image}">
@@ -32,6 +37,8 @@ wishlist.forEach(item => {
     </div>
   `;
 });
+
+document.getElementById("total").innerText = "Total: ₹" + total;
 </script>
 
 <script src="script.js"></script>

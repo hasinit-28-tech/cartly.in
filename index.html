@@ -6,57 +6,126 @@
 </head>
 <body>
 
+<!-- 🔐 LOGIN CHECK -->
+<script>
+if (localStorage.getItem("loggedIn") !== "true") {
+  window.location.href = "login.html";
+}
+</script>
+
 <!-- NAVBAR -->
 <div class="navbar">
   <h2>🛒 Cartly.in</h2>
-
-  <input 
-    type="text" 
-    id="search" 
-    placeholder="🔍 Search products..." 
-    onkeyup="applyFilters()"
-  />
-
   <div>
-    <span id="user-name"></span>
-    <button onclick="goToWishlist()">❤️</button>
-    <button onclick="logout()">Logout</button>
-    <span class="cart-icon">
-      🛒 <span id="cart-count">0</span>
-    </span>
+    <a href="wishlist.html">❤️ Wishlist</a>
+    <a href="cart.html">🛍 Cart</a>
+    <a href="#" onclick="logout()">🚪 Logout</a>
+    <button onclick="toggleDarkMode()">🌙</button>
   </div>
 </div>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>Big Deals on Fashion 🔥</h1>
-  <p>Up to 50% OFF</p>
+<!-- 🗂️ CATEGORIES -->
+<div class="categories">
+  <button onclick="filterCategory('all')">All</button>
+  <button onclick="filterCategory('fashion')">Fashion</button>
+  <button onclick="filterCategory('electronics')">Electronics</button>
+  <button onclick="filterCategory('accessories')">Accessories</button>
 </div>
 
-<div class="container">
+<!-- 🛒 PRODUCTS -->
+<div class="products">
 
-  <!-- SIDEBAR -->
-  <div class="sidebar">
-    <h3>🧾 Categories</h3>
-    <button onclick="setCategory('All', this)" class="active">All</button>
-    <button onclick="setCategory('Clothes', this)">👔 Clothes</button>
-    <button onclick="setCategory('Accessories', this)">⌚ Accessories</button>
-
-    <h3>💰 Sort</h3>
-    <button onclick="setSort('low')">⬆ Low → High</button>
-    <button onclick="setSort('high')">⬇ High → Low</button>
+  <div class="card" data-category="fashion">
+    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400">
+    <h3>Casual Shirt</h3>
+    <p>₹799</p>
+    <button onclick="addToCart('Casual Shirt',799,this.src)">Add to Cart</button>
+    <button onclick="addToWishlist('Casual Shirt',799,this.src)">❤️ Wishlist</button>
   </div>
 
-  <div id="products"></div>
+  <div class="card" data-category="fashion">
+    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400">
+    <h3>Running Shoes</h3>
+    <p>₹1499</p>
+    <button onclick="addToCart('Running Shoes',1499,this.src)">Add to Cart</button>
+    <button onclick="addToWishlist('Running Shoes',1499,this.src)">❤️ Wishlist</button>
+  </div>
+
+  <div class="card" data-category="electronics">
+    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400">
+    <h3>Laptop</h3>
+    <p>₹45999</p>
+    <button onclick="addToCart('Laptop',45999,this.src)">Add to Cart</button>
+    <button onclick="addToWishlist('Laptop',45999,this.src)">❤️ Wishlist</button>
+  </div>
+
+  <div class="card" data-category="electronics">
+    <img src="https://images.unsplash.com/photo-1510557880182-3a935eeb2cfd?w=400">
+    <h3>Smartphone</h3>
+    <p>₹14999</p>
+    <button onclick="addToCart('Smartphone',14999,this.src)">Add to Cart</button>
+    <button onclick="addToWishlist('Smartphone',14999,this.src)">❤️ Wishlist</button>
+  </div>
+
+  <div class="card" data-category="electronics">
+    <img src="https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?w=400">
+    <h3>Headphones</h3>
+    <p>₹999</p>
+    <button onclick="addToCart('Headphones',999,this.src)">Add to Cart</button>
+    <button onclick="addToWishlist('Headphones',999,this.src)">❤️ Wishlist</button>
+  </div>
+
+  <div class="card" data-category="accessories">
+    <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400">
+    <h3>Sunglasses</h3>
+    <p>₹699</p>
+    <button onclick="addToCart('Sunglasses',699,this.src)">Add to Cart</button>
+    <button onclick="addToWishlist('Sunglasses',699,this.src)">❤️ Wishlist</button>
+  </div>
+
+  <div class="card" data-category="fashion">
+    <img src="https://images.unsplash.com/photo-1520975922284-8b456906c813?w=400">
+    <h3>Leather Jacket</h3>
+    <p>₹2499</p>
+    <button onclick="addToCart('Leather Jacket',2499,this.src)">Add to Cart</button>
+    <button onclick="addToWishlist('Leather Jacket',2499,this.src)">❤️ Wishlist</button>
+  </div>
+
+  <div class="card" data-category="accessories">
+    <img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?w=400">
+    <h3>Backpack</h3>
+    <p>₹1299</p>
+    <button onclick="addToCart('Backpack',1299,this.src)">Add to Cart</button>
+    <button onclick="addToWishlist('Backpack',1299,this.src)">❤️ Wishlist</button>
+  </div>
+
+  <div class="card" data-category="accessories">
+    <img src="https://images.unsplash.com/photo-1523293830219-27f8b3fbbd5c?w=400">
+    <h3>Perfume</h3>
+    <p>₹1199</p>
+    <button onclick="addToCart('Perfume',1199,this.src)">Add to Cart</button>
+    <button onclick="addToWishlist('Perfume',1199,this.src)">❤️ Wishlist</button>
+  </div>
+
+  <div class="card" data-category="electronics">
+    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400">
+    <h3>Smart Watch</h3>
+    <p>₹1999</p>
+    <button onclick="addToCart('Smart Watch',1999,this.src)">Add to Cart</button>
+    <button onclick="addToWishlist('Smart Watch',1999,this.src)">❤️ Wishlist</button>
+  </div>
+
 </div>
-
-<h2>Cart</h2>
-<ul id="cart"></ul>
-
-<h3>Total: ₹<span id="total">0</span></h3>
-
-<button onclick="goToCheckout()">Proceed to Checkout 💳</button>
 
 <script src="script.js"></script>
+
+<!-- LOGOUT -->
+<script>
+function logout() {
+  localStorage.removeItem("loggedIn");
+  window.location.href = "login.html";
+}
+</script>
+
 </body>
 </html>

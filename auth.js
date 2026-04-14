@@ -1,71 +1,10 @@
-// 👁️ TOGGLE PASSWORD + ANIMATION
-function togglePassword() {
-  const pass = document.getElementById("password");
-  const eye = document.getElementById("eye");
-
-  if (pass.type === "password") {
-    pass.type = "text";
-    eye.textContent = "🙈"; // closed eye
-  } else {
-    pass.type = "password";
-    eye.textContent = "👁️";
-  }
-}
-
-// 🔍 EMOJI CHECK
-function containsEmoji(str) {
-  const regex = /[\p{Emoji}]/u;
-  return regex.test(str);
-}
-
-// 📊 VALIDATION + STRENGTH BAR
-function validatePassword() {
-  const password = document.getElementById("password").value;
-  const fill = document.getElementById("strength-fill");
-
-  const lengthRule = document.getElementById("length-rule");
-  const emojiRule = document.getElementById("emoji-rule");
-
-  let strength = 0;
-
-  if (password.length >= 6) {
-    lengthRule.textContent = "✅ At least 6 characters";
-    lengthRule.style.color = "green";
-    strength++;
-  } else {
-    lengthRule.textContent = "❌ At least 6 characters";
-    lengthRule.style.color = "red";
-  }
-
-  if (containsEmoji(password)) {
-    emojiRule.textContent = "✅ Emoji included";
-    emojiRule.style.color = "green";
-    strength++;
-  } else {
-    emojiRule.textContent = "❌ Must include emoji 😄";
-    emojiRule.style.color = "red";
-  }
-
-  // strength bar
-  if (strength === 0) {
-    fill.style.width = "30%";
-    fill.style.background = "red";
-  } else if (strength === 1) {
-    fill.style.width = "60%";
-    fill.style.background = "orange";
-  } else {
-    fill.style.width = "100%";
-    fill.style.background = "green";
-  }
-}
-
-// 📝 SIGNUP
+// SIGNUP
 function signup() {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
   const confirm = document.getElementById("confirm-password").value;
 
-  if (!username || !password || !confirm) {
+  if (!username || !password) {
     alert("Fill all fields");
     return;
   }
@@ -75,62 +14,55 @@ function signup() {
     return;
   }
 
-  if (password.length < 6 || !containsEmoji(password)) {
-    alert("Password not strong enough");
-    return;
-  }
+  // ✅ STORE AS OBJECT (IMPORTANT FIX)
+  const userData = {
+    username: username,
+    password: password,
+    photo: "https://via.placeholder.com/40"
+  };
 
-  localStorage.setItem("user", JSON.stringify({ username, password }));
-  alert("Signup successful 🎉");
+  localStorage.setItem("user", JSON.stringify(userData));
+
+  alert("Signup successful! Now login.");
 }
 
-// 🔐 LOGIN
+// LOGIN
 function login() {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
 
-  const user = JSON.parse(localStorage.getItem("user"));
+  const storedUser = JSON.parse(localStorage.getItem("user"));
 
-  if (!user) {
-    alert("No account found");
-    return;
-  }
+  if (
+    storedUser &&
+    username === storedUser.username &&
+    password === storedUser.password
+  ) {
+    localStorage.setItem("loggedIn", "true");
 
-  if (user.username === username && user.password === password) {
-    localStorage.setItem("loggedIn", true);
+    // ✅ REDIRECT
     window.location.href = "index.html";
   } else {
-    alert("Invalid credentials");
+    alert("Invalid login");
   }
 }
 
-// 🌙 DARK MODE
-function toggleDarkMode() {
-  document.body.classList.toggle("dark");
-}
-// 🔐 GOOGLE LOGIN (DEMO)
+// GOOGLE LOGIN (FAKE)
 function googleLogin() {
-  const demoUser = {
-    username: "GoogleUser",
-    password: "google123"
+  const userData = {
+    username: "Google User",
+    password: "",
+    photo: "https://via.placeholder.com/40"
   };
 
-  localStorage.setItem("user", JSON.stringify(demoUser));
-  localStorage.setItem("loggedIn", true);
+  localStorage.setItem("user", JSON.stringify(userData));
+  localStorage.setItem("loggedIn", "true");
 
-  alert("Logged in with Google 🎉");
   window.location.href = "index.html";
 }
-// 🔐 GOOGLE LOGIN (DEMO)
-function googleLogin() {
-  const demoUser = {
-    username: "GoogleUser",
-    password: "google123"
-  };
 
-  localStorage.setItem("user", JSON.stringify(demoUser));
-  localStorage.setItem("loggedIn", true);
-
-  alert("Logged in with Google 🎉");
-  window.location.href = "index.html";
+// SHOW PASSWORD
+function togglePassword() {
+  const pass = document.getElementById("password");
+  pass.type = pass.type === "password" ? "text" : "password";
 }
