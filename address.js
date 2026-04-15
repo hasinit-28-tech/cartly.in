@@ -12,58 +12,63 @@ function saveAddress() {
 
   const newAddress = { name, phone, address, pincode };
 
-  // GET EXISTING ADDRESSES
-  let addresses = JSON.parse(localStorage.getItem("addresses")) || [];
-
-  // ADD NEW ADDRESS
-  addresses.push(newAddress);
-
-  // SAVE BACK
-  localStorage.setItem("addresses", JSON.stringify(addresses));
-
-  alert("Address saved successfully ✅");
-
-  clearForm();
-  displayAddresses();
+  fetch("http://localhost:5000/api/address/add", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newAddress)
+  })
+    .then(res => res.json())
+    .then(data => {
+      alert(data.message);
+      clearForm();
+      displayAddresses();
+    })
+    .catch(err => console.log(err));
 }
 
 //////////////////////////////////////////////////////
 
-// DISPLAY ALL ADDRESSES
+// DISPLAY ADDRESSES
 function displayAddresses() {
   const addressList = document.getElementById("address-list");
   addressList.innerHTML = "";
 
-  const addresses = JSON.parse(localStorage.getItem("addresses")) || [];
+  fetch("http://localhost:5000/api/address")
+    .then(res => res.json())
+    .then(addresses => {
+      if (addresses.length === 0) {
+        addressList.innerHTML = "<p>No addresses saved.</p>";
+        return;
+      }
 
-  if (addresses.length === 0) {
-    addressList.innerHTML = "<p>No addresses saved.</p>";
-    return;
-  }
+      addresses.forEach((addr, index) => {
+        addressList.innerHTML += `
+          <div class="address-card">
+            <p><b>${addr.name}</b></p>
+            <p>${addr.phone}</p>
+            <p>${addr.address}</p>
+            <p>${addr.pincode}</p>
 
-  addresses.forEach((addr, index) => {
-    addressList.innerHTML += `
-      <div class="address-card">
-        <p><b>${addr.name}</b></p>
-        <p>${addr.phone}</p>
-        <p>${addr.address}</p>
-        <p>${addr.pincode}</p>
+            <button onclick="selectAddress(${index})">Select</button>
+            <button onclick="deleteAddress('${addr._id}')" class="delete">Delete</button>
+          </div>
+        `;
+      });
 
-        <button onclick="selectAddress(${index})">Select</button>
-        <button class="delete" onclick="deleteAddress(${index})">Delete</button>
-      </div>
-    `;
-  });
+      window.currentAddresses = addresses;
+    })
+    .catch(err => console.log(err));
 }
 
 //////////////////////////////////////////////////////
 
-// ✅ SELECT ADDRESS (IMPORTANT FOR CHECKOUT)
+// SELECT ADDRESS
 function selectAddress(index) {
-  const addresses = JSON.parse(localStorage.getItem("addresses")) || [];
+  const selected = window.currentAddresses[index];
 
-  // THIS IS THE IMPORTANT LINE YOU ASKED
-  localStorage.setItem("selectedAddress", JSON.stringify(addresses[index]));
+  localStorage.setItem("selectedAddress", JSON.stringify(selected));
 
   alert("Address selected for checkout ✅");
 }
@@ -71,14 +76,18 @@ function selectAddress(index) {
 //////////////////////////////////////////////////////
 
 // DELETE ADDRESS
-function deleteAddress(index) {
-  let addresses = JSON.parse(localStorage.getItem("addresses")) || [];
+function deleteAddress(id) {
+  if (!confirm("Are you sure you want to delete this address?")) return;
 
-  addresses.splice(index, 1);
-
-  localStorage.setItem("addresses", JSON.stringify(addresses));
-
-  displayAddresses();
+  fetch(`http://localhost:5000/api/address/${id}`, {
+    method: "DELETE"
+  })
+    .then(res => res.json())
+    .then(data => {
+      alert(data.message);
+      displayAddresses();
+    })
+    .catch(err => console.log(err));
 }
 
 //////////////////////////////////////////////////////
@@ -93,7 +102,7 @@ function clearForm() {
 
 //////////////////////////////////////////////////////
 
-// LOAD ON PAGE START
+// LOAD ON START
 window.onload = function () {
   displayAddresses();
 };

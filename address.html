@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Manage Addresses - Cartly.in</title>
+  <title>Checkout - Cartly.in</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- NAVBAR (SAME AS YOUR PROJECT) -->
+<!-- NAVBAR -->
 <div class="navbar">
   <h2>🛒 Cartly.in</h2>
   <div>
@@ -17,38 +17,133 @@
   </div>
 </div>
 
-<h2 style="text-align:center;">📍 Manage Addresses</h2>
+<h2 style="text-align:center;">Checkout</h2>
 
-<!-- ADD ADDRESS FORM -->
-<div class="checkout-box">
-  <h3>Add New Address</h3>
+<!-- ORDER SUMMARY -->
+<div id="orderSummary"></div>
 
-  <input type="text" id="name" placeholder="Full Name">
-  <input type="text" id="phone" placeholder="Phone Number">
-  <textarea id="address" placeholder="Full Address"></textarea>
-  <input type="text" id="pincode" placeholder="Pincode">
+<!-- ✅ SELECTED ADDRESS -->
+<div style="text-align:center; margin:10px;">
+  <h3>📍 Selected Address</h3>
+  <div id="selected-address"></div>
 
-  <button onclick="saveAddress()">Save Address</button>
-</div>
-
-<!-- SAVED ADDRESSES -->
-<div style="width:90%; max-width:600px; margin:auto;">
-  <h3 style="text-align:center;">Saved Addresses</h3>
-  <div id="address-list"></div>
-</div>
-
-<br>
-
-<!-- BACK BUTTON -->
-<div style="text-align:center;">
-  <a href="checkout.html">
-    <button class="checkout-btn">⬅ Back to Checkout</button>
+  <br>
+  <a href="address.html">
+    <button>Change Address</button>
   </a>
 </div>
 
-<!-- SCRIPTS -->
+<!-- FORM -->
+<div class="checkout-box">
+  <h3>Delivery Details</h3>
+
+  <input type="text" id="name" placeholder="Full Name">
+  <input type="text" id="address" placeholder="Address">
+  <input type="text" id="phone" placeholder="Phone Number">
+
+  <h3>Payment Method</h3>
+
+  <select id="payment">
+    <option>Cash on Delivery</option>
+    <option>UPI</option>
+    <option>Credit/Debit Card</option>
+  </select>
+
+  <button onclick="placeOrder()">Place Order</button>
+</div>
+
 <script src="script.js"></script>
-<script src="address.js"></script>
+
+<script>
+// GET DATA
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let buyItem = JSON.parse(localStorage.getItem("buyNowItem"));
+
+let total = 0;
+let summary = document.getElementById("orderSummary");
+
+// BUY NOW ITEM
+if (buyItem) {
+  summary.innerHTML += `
+    <div class="card">
+      <img src="${buyItem.image}">
+      <div>
+        <h3>${buyItem.name}</h3>
+        <p>₹${buyItem.price}</p>
+      </div>
+    </div>
+  `;
+  total += buyItem.price;
+}
+
+// CART ITEMS
+cart.forEach(item => {
+  let qty = item.qty || 1;
+  total += item.price * qty;
+
+  summary.innerHTML += `
+    <div class="card">
+      <img src="${item.image}">
+      <div>
+        <h3>${item.name}</h3>
+        <p>₹${item.price} × ${qty}</p>
+      </div>
+    </div>
+  `;
+});
+
+// TOTAL
+summary.innerHTML += `<h2 style="text-align:center;">Total: ₹${total}</h2>`;
+
+// ✅ LOAD SELECTED ADDRESS
+function loadSelectedAddress() {
+  const addr = JSON.parse(localStorage.getItem("selectedAddress"));
+  const box = document.getElementById("selected-address");
+
+  if (!addr) {
+    box.innerHTML = "<p>No address selected.</p>";
+    return;
+  }
+
+  box.innerHTML = `
+    <div class="address-card">
+      <p><b>${addr.name}</b></p>
+      <p>${addr.phone}</p>
+      <p>${addr.address}</p>
+      <p>${addr.pincode}</p>
+    </div>
+  `;
+
+  // Auto-fill form
+  document.getElementById("name").value = addr.name;
+  document.getElementById("address").value = addr.address;
+  document.getElementById("phone").value = addr.phone;
+}
+
+// PLACE ORDER
+function placeOrder() {
+  let name = document.getElementById("name").value;
+  let address = document.getElementById("address").value;
+  let phone = document.getElementById("phone").value;
+
+  if (name === "" || address === "" || phone === "") {
+    alert("Please fill all details ❌");
+    return;
+  }
+
+  alert("Order placed successfully 🎉");
+
+  localStorage.removeItem("cart");
+  localStorage.removeItem("buyNowItem");
+
+  window.location.href = "success.html";
+}
+
+// LOAD ON PAGE START
+window.onload = function () {
+  loadSelectedAddress();
+};
+</script>
 
 </body>
 </html>
