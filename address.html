@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Manage Addresses - Cartly.in</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR (SAME AS YOUR PROJECT) -->
+<div class="navbar">
+  <h2>🛒 Cartly.in</h2>
+  <div>
+    <a href="index.html">🏠 Home</a>
+    <a href="cart.html">🛍 Cart</a>
+    <button onclick="toggleDarkMode()">🌙</button>
+  </div>
+</div>
+
+<h2 style="text-align:center;">📍 Manage Addresses</h2>
+
+<!-- ADD ADDRESS FORM -->
+<div class="checkout-box">
+  <h3>Add New Address</h3>
+
+  <input type="text" id="name" placeholder="Full Name">
+  <input type="text" id="phone" placeholder="Phone Number">
+  <textarea id="address" placeholder="Full Address"></textarea>
+  <input type="text" id="pincode" placeholder="Pincode">
+
+  <button onclick="saveAddress()">Save Address</button>
+</div>
+
+<!-- SAVED ADDRESSES -->
+<div style="width:90%; max-width:600px; margin:auto;">
+  <h3 style="text-align:center;">Saved Addresses</h3>
+  <div id="address-list"></div>
+</div>
+
+<br>
+
+<!-- BACK BUTTON -->
+<div style="text-align:center;">
+  <a href="checkout.html">
+    <button class="checkout-btn">⬅ Back to Checkout</button>
+  </a>
+</div>
+
+<!-- SCRIPTS -->
+<script src="script.js"></script>
+<script src="address.js"></script>
+
+</body>
+</html>

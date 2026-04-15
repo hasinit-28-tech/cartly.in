@@ -6,42 +6,49 @@
 </head>
 <body>
 
-<div class="navbar">
-  <h2>🛒 Cartly.in</h2>
-  <div>
-    <a href="index.html">🏠 Home</a>
-    <a href="wishlist.html">❤️ Wishlist</a>
-    <button onclick="toggleDarkMode()">🌙</button>
-  </div>
-</div>
-
 <h2>Your Cart</h2>
 
-<div class="products" id="cart-container"></div>
-
+<div id="cart"></div>
 <h2 id="total"></h2>
+
+<button onclick="goToCheckout()">Proceed to Checkout</button>
 
 <script>
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
-let container = document.getElementById("cart-container");
 let total = 0;
+cart.forEach((item, index) => {
+  let qty = item.qty || 1;
+  total += item.price * qty;
 
-cart.forEach(item => {
-  total += item.price;
-
-  container.innerHTML += `
+  document.getElementById("cart").innerHTML += `
     <div class="card">
       <img src="${item.image}">
-      <h3>${item.name}</h3>
-      <p>₹${item.price}</p>
+      <div>
+        <h3>${item.name}</h3>
+        <p>₹${item.price} × ${qty}</p>
+      </div>
+      <button onclick="removeItem(${index})">Remove</button>
     </div>
   `;
 });
 
-document.getElementById("total").innerText = "Total: ₹" + total;
-</script>
 
-<script src="script.js"></script>
+document.getElementById("total").innerText = "Total: ₹" + total;
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  location.reload();
+}
+
+function goToCheckout() {
+  if (cart.length === 0) {
+    alert("Cart is empty ❌");
+    return;
+  }
+  window.location.href = "checkout.html";
+}
+</script>
 
 </body>
 </html>

@@ -2,51 +2,130 @@
 <html>
 <head>
   <title>Checkout - Cartly.in</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>💳 Checkout</h1>
-
-<h2>🏠 Delivery Address</h2>
-
-<input type="text" id="name" placeholder="Full Name"><br><br>
-<input type="text" id="phone" placeholder="Phone Number"><br><br>
-<input type="text" id="address" placeholder="Address"><br><br>
-<input type="text" id="city" placeholder="City"><br><br>
-<input type="text" id="pincode" placeholder="Pincode"><br><br>
-
-<!-- 💾 SAVE OPTION -->
-<label>
-  <input type="checkbox" id="save-address">
-  💾 Save this address for next time
-</label>
-
-<br><br>
-
-<h2>Your Items</h2>
-<ul id="checkout-items"></ul>
-
-<h3>Total: ₹<span id="checkout-total">0</span></h3>
-
-<h2>Select Payment Method</h2>
-
-<label><input type="radio" name="payment" value="cod" onclick="showPayment()"> 💵 COD</label><br>
-<label><input type="radio" name="payment" value="upi" onclick="showPayment()"> 📱 UPI</label><br>
-<label><input type="radio" name="payment" value="card" onclick="showPayment()"> 💳 Card</label>
-
-<div id="upi-section" style="display:none;">
-  <input type="text" id="upi-id" placeholder="UPI ID">
+<!-- NAVBAR -->
+<div class="navbar">
+  <h2>🛒 Cartly.in</h2>
+  <div>
+    <a href="index.html">🏠 Home</a>
+    <a href="cart.html">🛍 Cart</a>
+    <button onclick="toggleDarkMode()">🌙</button>
+  </div>
 </div>
 
-<div id="card-section" style="display:none;">
-  <input type="text" id="card-number" placeholder="Card Number">
+<h2 style="text-align:center;">Checkout</h2>
+
+<!-- ORDER SUMMARY -->
+<div id="orderSummary"></div>
+
+<!-- ADDRESS SELECT BUTTON -->
+<div style="text-align:center; margin:10px;">
+  <a href="address.html">
+    <button>📍 Select / Add Address</button>
+  </a>
 </div>
 
-<br><br>
+<!-- FORM -->
+<div class="checkout-box">
+  <h3>Delivery Details</h3>
 
-<button onclick="placeOrder()">✅ Place Order</button>
+  <input type="text" id="name" placeholder="Full Name">
+  <input type="text" id="address" placeholder="Address">
+  <input type="text" id="phone" placeholder="Phone Number">
 
-<script src="checkout.js"></script>
+  <h3>Payment Method</h3>
+
+  <select id="payment">
+    <option>Cash on Delivery</option>
+    <option>UPI</option>
+    <option>Credit/Debit Card</option>
+  </select>
+
+  <button onclick="placeOrder()">Place Order</button>
+</div>
+
+<script src="script.js"></script>
+
+<script>
+// GET DATA
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let buyItem = JSON.parse(localStorage.getItem("buyNowItem"));
+
+let total = 0;
+let summary = document.getElementById("orderSummary");
+
+// BUY NOW ITEM
+if (buyItem) {
+  summary.innerHTML += `
+    <div class="card">
+      <img src="${buyItem.image}">
+      <div>
+        <h3>${buyItem.name}</h3>
+        <p>₹${buyItem.price}</p>
+      </div>
+    </div>
+  `;
+  total += buyItem.price;
+}
+
+// CART ITEMS
+cart.forEach(item => {
+  let qty = item.qty || 1;
+  total += item.price * qty;
+
+  summary.innerHTML += `
+    <div class="card">
+      <img src="${item.image}">
+      <div>
+        <h3>${item.name}</h3>
+        <p>₹${item.price} × ${qty}</p>
+      </div>
+    </div>
+  `;
+});
+
+// TOTAL
+summary.innerHTML += `<h2 style="text-align:center;">Total: ₹${total}</h2>`;
+
+// ✅ LOAD SELECTED ADDRESS (NEW)
+function loadSelectedAddress() {
+  const addr = JSON.parse(localStorage.getItem("selectedAddress"));
+
+  if (addr) {
+    document.getElementById("name").value = addr.name;
+    document.getElementById("address").value = addr.address;
+    document.getElementById("phone").value = addr.phone;
+  }
+}
+
+// PLACE ORDER
+function placeOrder() {
+  let name = document.getElementById("name").value;
+  let address = document.getElementById("address").value;
+  let phone = document.getElementById("phone").value;
+
+  if (name === "" || address === "" || phone === "") {
+    alert("Please fill all details ❌");
+    return;
+  }
+
+  alert("Order placed successfully 🎉");
+
+  localStorage.removeItem("cart");
+  localStorage.removeItem("buyNowItem");
+
+  window.location.href = "success.html";
+}
+
+// LOAD ON PAGE START
+window.onload = function () {
+  loadSelectedAddress();
+};
+</script>
+
 </body>
 </html>

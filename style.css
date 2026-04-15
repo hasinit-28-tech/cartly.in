@@ -1,15 +1,20 @@
-/* GLOBAL */
+/* =========================
+   GLOBAL
+========================= */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  background: #ffffff; /* WHITE BACKGROUND */
+  background: #ffffff;
   color: #1a1a1a;
 }
 
-/* NAVBAR */
+
+/* =========================
+   NAVBAR
+========================= */
 .navbar {
-  background: linear-gradient(90deg, #2b1a1a, #5a2a2a); /* brown → maroon */
-  color: #fff;
+  background: linear-gradient(90deg, #2b1a1a, #5a2a2a);
+  color: white;
   padding: 15px 25px;
   display: flex;
   justify-content: space-between;
@@ -17,30 +22,84 @@ body {
 }
 
 .navbar h2 {
-  color: #f5e6c8; /* soft gold */
-}
-
-.navbar a {
-  color: #fff;
-  margin-left: 20px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.navbar a:hover {
   color: #f5e6c8;
 }
 
-/* PRODUCTS */
+.navbar a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.navbar button {
+  margin-left: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+.search-box {
+  text-align: center;
+  margin: 20px;
+}
+
+.search-box input {
+  width: 300px;
+  padding: 12px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.search-box input:focus {
+  border-color: #5a2a2a;
+}
+
+
+/* =========================
+   CATEGORIES
+========================= */
+.categories {
+  text-align: center;
+  margin: 10px;
+}
+
+.categories button {
+  margin: 5px;
+  padding: 10px 18px;
+  border-radius: 20px;
+  border: 1px solid #5a2a2a;
+  background: transparent;
+  color: #5a2a2a;
+  cursor: pointer;
+}
+
+.categories button:hover {
+  background: #5a2a2a;
+  color: white;
+}
+
+
+/* =========================
+   PRODUCTS GRID
+========================= */
 .products {
   display: flex;
   flex-wrap: wrap;
-  gap: 25px;
-  padding: 30px;
+  gap: 20px;
+  padding: 20px;
   justify-content: center;
 }
 
-/* CARD */
+
+/* =========================
+   CARD
+========================= */
 .card {
   background: #ffffff;
   padding: 15px;
@@ -54,10 +113,8 @@ body {
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* IMAGE */
 .card img {
   width: 100%;
   height: 160px;
@@ -65,43 +122,39 @@ body {
   border-radius: 10px;
 }
 
-/* TEXT */
 .card h3 {
-  margin: 10px 0 5px;
-  color: #2b1a1a; /* brown */
+  margin: 10px 0;
+  color: #2b1a1a;
 }
 
 .card p {
-  color: #5a2a2a; /* maroon price */
+  color: #5a2a2a;
   font-weight: bold;
 }
 
-/* BUTTONS */
+
+/* =========================
+   BUTTONS
+========================= */
 button {
-  margin: 6px;
+  margin: 5px;
   padding: 10px;
   border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
   border: none;
-  transition: 0.3s;
+  cursor: pointer;
 }
 
 /* ADD TO CART */
 button:nth-child(4) {
-  background: #5a2a2a; /* maroon */
+  background: #5a2a2a;
   color: white;
-}
-
-button:nth-child(4):hover {
-  background: #7a3a3a;
 }
 
 /* WISHLIST */
 button:nth-child(5) {
   background: transparent;
-  color: #5a2a2a;
   border: 1px solid #5a2a2a;
+  color: #5a2a2a;
 }
 
 button:nth-child(5):hover {
@@ -109,14 +162,10 @@ button:nth-child(5):hover {
   color: white;
 }
 
-/* HEADINGS */
-h2 {
-  text-align: center;
-  margin-top: 20px;
-  color: #2b1a1a;
-}
-/* CLASSY LOGIN */
 
+/* =========================
+   LOGIN BOX
+========================= */
 .login-wrapper {
   height: calc(100vh - 70px);
   display: flex;
@@ -124,171 +173,61 @@ h2 {
   align-items: center;
 }
 
-/* BOX */
 .login-box {
-  width: 360px;
-  padding: 40px;
-  background: #ffffff;
-  border-radius: 18px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  width: 350px;
+  padding: 35px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
   text-align: center;
-  border-top: 4px solid #5a2a2a;
 }
 
-/* TITLE */
-.login-box h2 {
-  margin-bottom: 5px;
-  color: #2b1a1a;
-}
-
-.subtitle {
-  color: #777;
-  font-size: 14px;
-  margin-bottom: 20px;
-}
-
-/* INPUT */
 .login-box input {
   width: 100%;
-  padding: 13px;
+  padding: 12px;
   margin: 10px 0;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  transition: 0.3s;
-  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
-.login-box input:focus {
-  border-color: #5a2a2a;
-  box-shadow: 0 0 5px rgba(90,42,42,0.2);
-  outline: none;
-}
-
-/* PASSWORD FIELD */
-.password-field {
-  position: relative;
-}
-
-.password-field span {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-}
-
-/* BUTTON */
 .login-box button {
   width: 100%;
-  padding: 13px;
-  margin-top: 15px;
-  background: linear-gradient(90deg, #5a2a2a, #7a3a3a);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.login-box button:hover {
-  transform: scale(1.03);
-}
-
-/* ERROR */
-#error {
-  color: red;
-  margin-top: 10px;
-}
-/* CART SUMMARY BOX */
-.cart-summary {
-  text-align: center;
-  margin: 30px;
-  padding: 20px;
-  background: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  width: 300px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* TOTAL TEXT */
-.cart-summary h2 {
-  color: #2b1a1a;
-}
-
-/* CHECKOUT BUTTON */
-.cart-summary button {
-  margin-top: 10px;
-  padding: 12px;
-  width: 100%;
-  background: linear-gradient(90deg, #5a2a2a, #7a3a3a);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.cart-summary button:hover {
-  transform: scale(1.05);
-}
-
-/* REMOVE BUTTON */
-.card button {
-  background: transparent;
-  color: #5a2a2a;
-  border: 1px solid #5a2a2a;
-}
-
-.card button:hover {
   background: #5a2a2a;
   color: white;
 }
-/* WISHLIST SUMMARY */
+
+
+/* =========================
+   CART / WISHLIST BOX
+========================= */
+.cart-summary,
 .wishlist-summary {
   text-align: center;
-  margin: 30px;
+  margin: 30px auto;
+  padding: 20px;
+  width: 300px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
-/* CLEAR BUTTON */
-.wishlist-summary button {
-  padding: 12px 20px;
-  background: linear-gradient(90deg, #5a2a2a, #7a3a3a);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
 
-.wishlist-summary button:hover {
-  transform: scale(1.05);
-}
-/* 🌙 DARK MODE */
-
+/* =========================
+   DARK MODE
+========================= */
 body.dark {
   background: #0f0f0f;
-  color: #f5f5f5;
+  color: #ffffff;
 }
 
 /* NAVBAR */
 body.dark .navbar {
-  background: linear-gradient(90deg, #000000, #2b1a1a);
-}
-
-/* LINKS */
-body.dark .navbar a {
-  color: #f5f5f5;
+  background: #000;
 }
 
 /* CARDS */
 body.dark .card {
   background: #1a1a1a;
-  color: #ffffff;
   border: 1px solid #333;
 }
 
@@ -303,55 +242,251 @@ body.dark .card p {
   color: #d4af37;
 }
 
-/* BUTTONS */
+/* BUTTON */
 body.dark button {
   background: #2b1a1a;
   color: white;
-}
-
-/* LOGIN BOX */
-body.dark .login-box {
-  background: #1a1a1a;
-  color: #fff;
 }
 
 /* INPUT */
 body.dark input {
   background: #2b2b2b;
   color: white;
-  border: 1px solid #444;
+  border: 1px solid #555;
 }
 
-/* CART + WISHLIST BOX */
-body.dark .cart-summary,
-body.dark .wishlist-summary {
-  background: #1a1a1a;
-}
-
-/* HOVER */
-body.dark button:hover {
-  background: #5a2a2a;
-}
-body.dark {
-  background: #0f0f0f;
-  color: white;
-}
-
-body.dark .navbar {
-  background: #000;
-}
-
-body.dark .card {
-  background: #1a1a1a;
-  border: 1px solid #333;
-}
-
-body.dark button {
-  background: #2b1a1a;
-  color: white;
-}
-
-body.dark input {
+/* SEARCH */
+body.dark .search-box input {
   background: #2b2b2b;
   color: white;
+}
+
+/* CATEGORIES */
+body.dark .categories button {
+  border: 1px solid #aaa;
+  color: white;
+}
+/* CHECKOUT BOX */
+.checkout-box {
+  width: 350px;
+  margin: 30px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+/* INPUT */
+.checkout-box input,
+.checkout-box select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* BUTTON */
+.checkout-box button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #5a2a2a, #7a3a3a);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* DARK MODE */
+body.dark .checkout-box {
+  background: #1a1a1a;
+}
+
+body.dark .checkout-box input,
+body.dark .checkout-box select {
+  background: #2b2b2b;
+  color: white;
+  border: 1px solid #555;
+}
+/* =========================
+   📱 MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar div {
+    margin-top: 10px;
+  }
+
+  /* SEARCH */
+  .search-box input {
+    width: 90%;
+  }
+
+  /* PRODUCTS GRID */
+  .products {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* CARD */
+  .card {
+    width: 90%;
+  }
+
+  /* LOGIN BOX */
+  .login-box {
+    width: 90%;
+  }
+
+  /* CHECKOUT */
+  .checkout-box {
+    width: 90%;
+  }
+
+  /* CART & WISHLIST BOX */
+  .cart-summary,
+  .wishlist-summary {
+    width: 90%;
+  }
+
+}
+/* SORT BOX */
+.sort-box {
+  text-align: center;
+  margin: 10px;
+}
+
+.sort-box select {
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #5a2a2a;
+  outline: none;
+}
+
+/* DARK MODE */
+body.dark .sort-box select {
+  background: #2b2b2b;
+  color: white;
+  border: 1px solid #555;
+}
+.cart-summary {
+  text-align: center;
+  margin: 30px auto;
+  padding: 20px;
+  width: 300px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.cart-summary button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #5a2a2a, #7a3a3a);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* DARK MODE */
+body.dark .cart-summary {
+  background: #1a1a1a;
+}
+/* ORDER SUMMARY */
+#orderSummary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 20px;
+}
+
+#orderSummary .card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 320px;
+  padding: 10px;
+}
+
+#orderSummary img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+/* CART IMAGE STYLE */
+#cart .card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 320px;
+  margin: 10px auto;
+}
+
+#cart img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+/* Navbar (if not already) */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #222;
+  color: white;
+  padding: 10px 20px;
+}
+
+.navbar a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+/* Checkout box reuse */
+.checkout-box {
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+/* Address cards SAME STYLE AS PRODUCTS */
+.address-card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.address-card button {
+  margin-top: 8px;
+}
+
+/* Delete button */
+.delete {
+  background: red;
+}
+
+/* Buttons */
+.checkout-btn {
+  background: green;
+  padding: 10px 20px;
 }
