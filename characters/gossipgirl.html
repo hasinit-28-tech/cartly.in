@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gossip Girl</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+
+  background:
+  linear-gradient(
+    rgba(0,0,0,0.55),
+    rgba(20,20,20,0.70)
+  ),
+
+  url('https://wallpapercave.com/wp/wp4996416.jpg');
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+
+  min-height:100vh;
+  padding:40px;
+  text-align:center;
+
+}
+
+h1{
+
+  font-size:58px;
+
+  color:#f8d36a;
+
+  margin-bottom:15px;
+
+  text-shadow:2px 2px 15px rgba(0,0,0,0.8);
+
+}
+
+p{
+
+  color:#f5e6c8;
+
+  margin-bottom:50px;
+
+  font-size:20px;
+
+  font-weight:500;
+
+}
+
+.container{
+
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:30px;
+
+}
+
+.card{
+
+  width:280px;
+
+  background:rgba(15,15,15,0.78);
+
+  backdrop-filter:blur(10px);
+
+  border:1px solid rgba(255,215,120,0.2);
+
+  border-radius:25px;
+
+  padding:20px;
+
+  cursor:pointer;
+
+  transition:0.35s;
+
+  box-shadow:0 8px 25px rgba(0,0,0,0.5);
+
+}
+
+.card:hover{
+
+  transform:translateY(-12px) scale(1.02);
+
+  background:rgba(25,25,25,0.88);
+
+}
+
+.character-img{
+
+  width:100%;
+  height:340px;
+  object-fit:cover;
+  border-radius:20px;
+  margin-bottom:15px;
+
+}
+
+.title{
+
+  font-size:28px;
+  font-weight:bold;
+
+  margin-bottom:10px;
+
+  color:#f8d36a;
+
+}
+
+.desc{
+
+  color:#f3e7c5;
+
+  line-height:1.7;
+
+  font-size:16px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>✨ Gossip Girl ✨</h1>
+
+<p>Select your Upper East Side aesthetic</p>
+
+<div class="container">
+
+  <!-- BLAIR -->
+
+  <div class="card" onclick="selectCharacter('Blair Waldorf')">
+
+    <img
+      src="https://images.openai.com/static-rsc-4/fl8l2KTOmWRMXO7gz1UE6VWwwU5DUoOyZX3qzejmAHzR_Ke16XKNzroQSVOE4WXy6Uuwzy49wI4O7gztvziz-COBA2En3I1vPzVNdcZejAb2a2cJ9Bt4Eiulk7J3HdIO-3_w2-OliWKoaIkqU_DrksJiIqWHfCXxvXYP2OGUPcEVLeS5jGU_DSBZKFxxBYdC?purpose=fullsize"
+      class="character-img"
+    >
+
+    <div class="title">Blair Waldorf</div>
+
+    <div class="desc">
+      Luxury preppy old money fashion aesthetic
+    </div>
+
+  </div>
+
+  <!-- SERENA -->
+
+  <div class="card" onclick="selectCharacter('Serena van der Woodsen')">
+
+    <img
+      src="https://images.openai.com/static-rsc-4/0l5XYUtaR1R8BGtn16mbNB0WTEKaNeB9dD_pPXTeNX9rkJ6CpMSv86k-FRdOEEa3KU7VuAuVR6phjacQp-9wbm7XhgwoLzbnJaUVqZNJoMHXAhd0G6tf80qHKT3CVcEplZoSwi6V9-YnhhHPo3sEYdFOd23FlDdR-MehqIKtMSE7qUtIJM7bFLPEZeqI_zk6?purpose=fullsize"
+      class="character-img"
+    >
+
+    <div class="title">Serena van der Woodsen</div>
+
+    <div class="desc">
+      Effortless glamorous rich girl aesthetic
+    </div>
+
+  </div>
+
+  <!-- CHUCK -->
+
+  <div class="card" onclick="selectCharacter('Chuck Bass')">
+
+    <img
+      src="https://images.openai.com/static-rsc-4/k_8faxB2K-8sC17ni_2CbE0rd1mjr4xO0k9cEVOmJ6dskH5wh69F95cOBn3VMzY84g2dLw0jjz7JPNAmo3stfIkIYZHJ1kbFSac9aK040LDhJqkkU4r1ZFs8zYikb24wUQO-vVgP9QL68aKvcXLiamNeEIRX0WA9oppu_06oTFblDSztRWgd761v14YnBkfn?purpose=fullsize"
+      class="character-img"
+    >
+
+    <div class="title">Chuck Bass</div>
+
+    <div class="desc">
+      Bold luxury suits and statement old money aesthetic
+    </div>
+
+  </div>
+
+  <!-- NATE -->
+
+  <div class="card" onclick="selectCharacter('Nate Archibald')">
+
+    <img
+      src="https://images.openai.com/static-rsc-4/lTRO1kB_iOWiyTm8x6mCURqRa6rKzZ2gmiS8MpL-m9z_LqtmVH1vNFQYHthogwI_kwYX5NPjy7Bg5lXkRE8wSGjVckjcd-5WjJ-rkgjeontrSqoChClcDJOXjPeH0f9pD72oGcFhd3gizpN_J_DmjE2qtFoWRhQjYTz985rZ-Sm22v5cnQ4aklKa2iD2HE6v?purpose=fullsize"
+      class="character-img"
+    >
+
+    <div class="title">Nate Archibald</div>
+
+    <div class="desc">
+      Clean rich boy relaxed classy aesthetic
+    </div>
+
+  </div>
+
+  <!-- JENNY -->
+
+  <div class="card" onclick="selectCharacter('Jenny Humphrey')">
+
+    <img
+      src="https://images.openai.com/static-rsc-4/8f-gvRNVJ4rY_QLn3IlA0VFnyDx9qmgB3NEmJQxjktvS0y5W6sUD_dEbU8MWFbjFCLGnMgNVpJjmRnFRhLHydV6DJ1ZwvI_gNg7bdQSjjytjiGLLwAGl4sndQfOV_-QHN03WH4HUBUixNUhorUYQF6msyAvFJfEafqLZnXJ9fUFtXwgk5WorZYA75Sm3BNY5?purpose=fullsize"
+      class="character-img"
+    >
+
+    <div class="title">Jenny Humphrey</div>
+
+    <div class="desc">
+      Edgy dark chic rebellious fashion aesthetic
+    </div>
+
+  </div>
+
+  <!-- LILY -->
+
+  <div class="card" onclick="selectCharacter('Lily van der Woodsen')">
+
+    <img
+      src="https://images.openai.com/static-rsc-4/oW_NwFH4-2WJ2RBS017nZQmbSA0bMDlyg9P6_iN7Za99WJEifkx26RjgydUSqthVefyZVgNuN4EpP_wvluRY40_mXgEsfR1gfUOr2Mop6pCYrZEEutP8b4ZiJ9HGVybmvN5INpDQpWh0_5GHtXtBoWt0fSt2INSDrEmgUxQG_ZtLl2TB165Mt40vy7eCnLCU?purpose=fullsize"
+      class="character-img"
+    >
+
+    <div class="title">Lily van der Woodsen</div>
+
+    <div class="desc">
+      Elegant sophisticated luxury old money aesthetic
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+function selectCharacter(character){
+
+  localStorage.setItem("character", character);
+
+  window.location.href = "../suggestion.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

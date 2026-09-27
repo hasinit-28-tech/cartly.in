@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Vampire Diaries</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:linear-gradient(to right,#141414,#3a0d1d);
+  min-height:100vh;
+  padding:40px;
+  text-align:center;
+  color:white;
+}
+
+h1{
+  font-size:48px;
+  margin-bottom:15px;
+}
+
+p{
+  color:#d6d6d6;
+  margin-bottom:50px;
+  font-size:18px;
+}
+
+.container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:30px;
+}
+
+.card{
+
+  width:280px;
+  background:#242424;
+  border-radius:25px;
+  padding:20px;
+  cursor:pointer;
+  transition:0.3s;
+  box-shadow:0 6px 15px rgba(0,0,0,0.5);
+
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  background:#34101e;
+}
+
+.character-img{
+
+  width:100%;
+  height:340px;
+  object-fit:cover;
+  border-radius:20px;
+  margin-bottom:15px;
+
+}
+
+.title{
+  font-size:26px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+.desc{
+  color:#ccc;
+  line-height:1.6;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🖤 The Vampire Diaries</h1>
+
+<p>Select your favorite character aesthetic</p>
+
+<div class="container">
+
+  <!-- ELENA -->
+
+  <div class="card" onclick="selectCharacter('Elena Gilbert')">
+
+    <img
+      src="https://images.openai.com/static-rsc-4/zai7QHFl9VeXV5ONxQfohS8D2ylaZA3n5dfBqFVtGrh6zQaK8G1VtgiXCteNi2ChlpDMFb842h9k-XJoYmsJS1XW9byNYz3EsI4KcPOY8x6nP0sjGSIMJdza2OpakllbbLc3feYEBhO7-DgpL6qEVDGrdBc9YD1FJkE0tIeCbQ_c8sqN6n_xNKV3OUMyIxb-?purpose=fullsize"
+      class="character-img"
+    >
+
+    <div class="title">Elena Gilbert</div>
+
+    <div class="desc">
+      Soft dark feminine casual aesthetic
+    </div>
+
+  </div>
+
+  <!-- KATHERINE -->
+
+  <div class="card" onclick="selectCharacter('Katherine Pierce')">
+
+    <img
+      src="https://images.openai.com/static-rsc-4/gOeU17bGVgk3yvIS2hYpUTLPMirkPzcntpyh4eZ_f5yRMwmmT0b8T_LI-waTR6IL0qIYkWUrJw9T9a7D01yGC6q9py5h26Jd8YCejU7IzKeq5X_L-O4hDoc8KzQMei8TdcK8gzlGfFOMs4nw950B1jS-NkyC8PqhqlKhXTa-pol7m9qyHFeBUOV1bSRvnJhi?purpose=fullsize"
+      class="character-img"
+    >
+
+    <div class="title">Katherine Pierce</div>
+
+    <div class="desc">
+      Bold seductive black classy fashion
+    </div>
+
+  </div>
+
+  <!-- DAMON -->
+
+  <div class="card" onclick="selectCharacter('Damon Salvatore')">
+
+    <img
+      src="https://images.openai.com/static-rsc-4/q3lf9LAGGaYEj5jNJxuZ3DIVY8y_aF077GcCpQFUYXVXrqT-Ev1maQN6EHxnioE40FayHUIfFiaZvFMA9ouKgu5YDiq9tLPMOi-F0E1hIw7cGhZNOW615Y8-9nhAHrfzdHjPMPd-K_PYGRcWhyieCXZj_NcrrBcTx7RDAkfCrFsekBj-aMB_mnTJRG1UFRVO?purpose=fullsize"
+      class="character-img"
+    >
+
+    <div class="title">Damon Salvatore</div>
+
+    <div class="desc">
+      Dark leather jacket mysterious aesthetic
+    </div>
+
+  </div>
+
+  <!-- STEFAN -->
+
+  <div class="card" onclick="selectCharacter('Stefan Salvatore')">
+
+    <img
+      src="https://images.openai.com/static-rsc-4/d6feBvYzWMu8nRJSWKv_24ua2HqUwJshk1te4dJpMHIxZgiLjxXINoy44UzP0nq65d4nQ-5rYvelA5v7iNACWbQXOuSOp1KzD8Cigl2A69JfQ7p-FIWeOoKXPssfmd7l0XvFw6QpR7aPXwIpgs83cVIAR4HbOzKxqL8g3IFFddqXShjLGd_a9IC5Bg-VkfFY?purpose=fullsize"
+      class="character-img"
+    >
+
+    <div class="title">Stefan Salvatore</div>
+
+    <div class="desc">
+      Clean layered elegant dark academia aesthetic
+    </div>
+
+  </div>
+
+  <!-- CAROLINE -->
+
+  <div class="card" onclick="selectCharacter('Caroline Forbes')">
+
+    <img
+      src="https://images.openai.com/static-rsc-4/HbudQJHaPgv5nTKwtWp40n7P6xcKTcWvajZQD7F1z8K6Gd3EAvS9qhJ9lS0LlO-uVy_ntO3Pwe3lrVtWi-hU-H82A2a5sjcNPnIQuX6EPKNe314RPNx7-8JaQjrWLFMoLQ5cpyz-O_Wl35IHqR6NZRlmj2y1cY9YigviJA4-I9irNPDmJhPvAssC79dYTjZq?purpose=fullsize"
+      class="character-img"
+    >
+
+    <div class="title">Caroline Forbes</div>
+
+    <div class="desc">
+      Chic trendy bright feminine fashion
+    </div>
+
+  </div>
+
+  <!-- BONNIE -->
+
+  <div class="card" onclick="selectCharacter('Bonnie Bennett')">
+
+    <img
+      src="https://images.openai.com/static-rsc-4/VhqxQrnScKC7i8MW9sQi-upnOtm9rpm6plbBGACxZTP3Zhf6ZzxoPQmo-adrRKt-6QetSldsy1TvHIQmP7RUiKn-t24t2qJFMfRwHjDy4qZ6TuzBxH6zqVClgNKb7nAAmFOEFkWYWJT-90eX2J_Hbq56mBb8BweGW7P5uu1YaBRG1QX-btXk3x7nUZYpzIiQ?purpose=fullsize"
+      class="character-img"
+    >
+
+    <div class="title">Bonnie Bennett</div>
+
+    <div class="desc">
+      Witchy boho dark academia aesthetic
+    </div>
+
+  </div>
+
+  <!-- KLAUS -->
+
+  <div class="card" onclick="selectCharacter('Klaus Mikaelson')">
+
+    <img
+      src="https://images.openai.com/static-rsc-4/8htYvqr2N0ySsJqP-vli_R61PCRa1HL5sUDeLfEbL2iq1998WCuyeICMrK5ERXKQZYuIi9DmZjBCX99YznTX0ANDCFZCGiGGLR_U2Ji6_8LCeKq8dVYR6XUY-RZD_bg7Igd1z3IN4Sgwh-_uzoBqd6E7x8XrmHUb2KEvzCJ9ahJ-oUZtTn8_2nkZYWX0n1_8?purpose=fullsize"
+      class="character-img"
+    >
+
+    <div class="title">Klaus Mikaelson</div>
+
+    <div class="desc">
+      Hybrid king dark luxury old money aesthetic
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+function selectCharacter(character){
+
+  localStorage.setItem("character", character);
+
+  window.location.href = "../suggestion.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

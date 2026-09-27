@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Summer I Turned Pretty</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+
+  background:
+  linear-gradient(
+    rgba(255,245,235,0.45),
+    rgba(180,220,255,0.40)
+  ),
+
+  url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1974&auto=format&fit=crop');
+
+  background-size:cover;
+
+  background-position:center;
+
+  background-repeat:no-repeat;
+
+  background-attachment:fixed;
+
+  min-height:100vh;
+
+  padding:40px;
+
+  text-align:center;
+
+}
+
+h1{
+
+  font-size:58px;
+
+  color:#fff8ee;
+
+  margin-bottom:15px;
+
+  text-shadow:2px 2px 18px rgba(0,0,0,0.45);
+
+}
+
+p{
+
+  color:#fef4e7;
+
+  margin-bottom:50px;
+
+  font-size:20px;
+
+  font-weight:500;
+
+}
+
+.container{
+
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:30px;
+
+}
+
+.card{
+
+  width:280px;
+
+  background:rgba(255,255,255,0.18);
+
+  backdrop-filter:blur(12px);
+
+  border:1px solid rgba(255,255,255,0.25);
+
+  border-radius:25px;
+
+  padding:20px;
+
+  cursor:pointer;
+
+  transition:0.35s;
+
+  box-shadow:0 8px 25px rgba(0,0,0,0.22);
+
+}
+
+.card:hover{
+
+  transform:translateY(-12px) scale(1.02);
+
+  background:rgba(255,255,255,0.24);
+
+}
+
+.character-img{
+
+  width:100%;
+  height:340px;
+
+  object-fit:cover;
+
+  border-radius:20px;
+
+  margin-bottom:15px;
+
+}
+
+.title{
+
+  font-size:28px;
+
+  font-weight:bold;
+
+  margin-bottom:10px;
+
+  color:#fff8f0;
+
+}
+
+.desc{
+
+  color:#fff4ea;
+
+  line-height:1.7;
+
+  font-size:16px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>☀️ The Summer I Turned Pretty ☀️</h1>
+
+<p>Select your coastal summer aesthetic</p>
+
+<div class="container">
+
+  <!-- BELLY -->
+
+  <div class="card" onclick="selectCharacter('Belly Conklin')">
+
+    <img
+      src="https://decider.com/wp-content/uploads/2023/07/belly-tsitp.jpg?quality=75&strip=all&w=1284"
+      class="character-img"
+    >
+
+    <div class="title">Belly Conklin</div>
+
+    <div class="desc">
+      Soft coastal summer girl aesthetic
+    </div>
+
+  </div>
+
+  <!-- CONRAD -->
+
+  <div class="card" onclick="selectCharacter('Conrad Fisher')">
+
+    <img
+      src="https://static.wikia.nocookie.net/thesummeriturnedprettytrilogy/images/3/31/Conrad_S3_Portrait.jpg/revision/latest?cb=20250720233913"
+      class="character-img"
+    >
+
+    <div class="title">Conrad Fisher</div>
+
+    <div class="desc">
+      Quiet rich boy coastal old money aesthetic
+    </div>
+
+  </div>
+
+  <!-- JEREMIAH -->
+
+  <div class="card" onclick="selectCharacter('Jeremiah Fisher')">
+
+    <img
+      src="https://images.openai.com/static-rsc-4/5iSDww-GDWiLF2bSlShN6xiEofqjLY340jNZOz-GWswGZepg7K20JxDasfeWu-dHwljne4dEZ9KgozhJUz1mSotbE7XtiFOjCysmKDfVH05pksPycpmiyXHWZ_qPnnZ2xmczoo8wIVMqVVxLnFjir8j8fwEo3oFGG7u9nMHC-icGS38YywarypkW0kL8r3tW?purpose=fullsize"
+      class="character-img"
+    >
+
+    <div class="title">Jeremiah Fisher</div>
+
+    <div class="desc">
+      Golden retriever beach boy summer aesthetic
+    </div>
+
+  </div>
+
+  <!-- TAYLOR -->
+
+  <div class="card" onclick="selectCharacter('Taylor Jewel')">
+
+    <img
+      src="https://images.openai.com/static-rsc-4/67Qgm4f2rxXaHvfrbkHzJqRb-qN--Yg2zLKJyGejNw0wNU0c2-pzRe8vUH-OD18zM4-OZaQpFPZrzrK0uxButUQ_ibze3P7kWLSbFpgMWS4sHr33x5RUyt5xLBCRbAFqWNlgnOXWvgWn4HVqDgBpImEUYcLdJ3dako6kel4r6FMwgtGMsJmJJWzpQhtTG-Bg?purpose=fullsize"
+      class="character-img"
+    >
+
+    <div class="title">Taylor Jewel</div>
+
+    <div class="desc">
+      Trendy colorful beach girl summer aesthetic
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+function selectCharacter(character){
+
+  localStorage.setItem("character", character);
+
+  window.location.href = "../suggestion.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

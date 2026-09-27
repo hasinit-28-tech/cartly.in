@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bridgerton</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+
+  background:
+  linear-gradient(
+    rgba(20,10,30,0.58),
+    rgba(60,30,70,0.62)
+  ),
+
+  url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1974&auto=format&fit=crop');
+
+  background-size:cover;
+
+  background-position:center;
+
+  background-repeat:no-repeat;
+
+  background-attachment:fixed;
+
+  min-height:100vh;
+
+  padding:40px;
+
+  text-align:center;
+
+}
+
+h1{
+
+  font-size:58px;
+
+  color:#f5d78e;
+
+  margin-bottom:15px;
+
+  text-shadow:2px 2px 18px rgba(0,0,0,0.8);
+
+}
+
+p{
+
+  color:#f8ead0;
+
+  margin-bottom:50px;
+
+  font-size:20px;
+
+  font-weight:500;
+
+}
+
+.container{
+
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:30px;
+
+}
+
+.card{
+
+  width:280px;
+
+  background:rgba(255,255,255,0.13);
+
+  backdrop-filter:blur(12px);
+
+  border:1px solid rgba(255,255,255,0.2);
+
+  border-radius:25px;
+
+  padding:20px;
+
+  cursor:pointer;
+
+  transition:0.35s;
+
+  box-shadow:0 8px 25px rgba(0,0,0,0.35);
+
+}
+
+.card:hover{
+
+  transform:translateY(-12px) scale(1.02);
+
+  background:rgba(255,255,255,0.18);
+
+}
+
+.character-img{
+
+  width:100%;
+  height:340px;
+
+  object-fit:cover;
+
+  border-radius:20px;
+
+  margin-bottom:15px;
+
+}
+
+.title{
+
+  font-size:28px;
+
+  font-weight:bold;
+
+  margin-bottom:10px;
+
+  color:#ffe7a3;
+
+}
+
+.desc{
+
+  color:#f7edd3;
+
+  line-height:1.7;
+
+  font-size:16px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>👑 Bridgerton 👑</h1>
+
+<p>Select your royal regency aesthetic</p>
+
+<div class="container">
+
+  <!-- DAPHNE -->
+
+  <div class="card" onclick="selectCharacter('Daphne Bridgerton')">
+
+    <img
+      src="https://images.openai.com/static-rsc-4/IZeF1u8HHIva6QfJ_YL1n9ZKbh98ByfpdhjYPbyyqG-JOLJ454_H0fvZ9GTXB-nKC_YVHhBYTt2ImLf2jXoNebSOoUQu1ZOXF5fHt6uqp4vZ-IZJpRD_LrmdPf0E1jfdtjAGw6aK5sGRGiu1b-ZyC-lxEKFfACZvSxkLD2vOixaOOma5biEM7lXubJorSM7b?purpose=fullsize"
+      class="character-img"
+    >
+
+    <div class="title">Daphne Bridgerton</div>
+
+    <div class="desc">
+      Elegant feminine royalcore pastel aesthetic
+    </div>
+
+  </div>
+
+  <!-- KATE SHARMA -->
+
+  <div class="card" onclick="selectCharacter('Kate Sharma')">
+
+    <img
+      src="https://images.openai.com/static-rsc-4/c06qkpssn69RsE2GcTJQAgs6HDbkPr8lfnMh4GfMPQFg9D7qszQG2nVUyFcrHSsdgS6893cmsowK2rkclZgdBezAWNhwBwiooXOWrwIyb9YFkSFswK3qN8cSMpvL2A0jUlLB1ziWHrK6eMJSP_p8qxOFVT6telZHoaQBOpZnMlie7a0hsBJpshGVznThiPy7?purpose=fullsize"
+      class="character-img"
+    >
+
+    <div class="title">Kate Sharma</div>
+
+    <div class="desc">
+      Bold classy royal luxury regency aesthetic
+    </div>
+
+  </div>
+
+  <!-- PENELOPE -->
+
+  <div class="card" onclick="selectCharacter('Penelope Featherington')">
+
+    <img
+      src="https://images.openai.com/static-rsc-4/TDgK2MJVRfXKB0CIqD3GbWyt4VufiDIKisevEE0RCfdD054n-ML_3CllevFNdQFQuQ9RHl8Sgjp2BBdyA5jX0vXt4pBCMf5_0p_t-Bg6tRbf0i2046L1k7zo_7xgdIqzzedg-ZCOOh6Kggoqcn5W3tA2n8nQ4F8n7YL3uVxPDMSqIZkio_og5aMYB81eZrHN?purpose=fullsize"
+      class="character-img"
+    >
+
+    <div class="title">Penelope Featherington</div>
+
+    <div class="desc">
+      Soft romantic pastel royalcore aesthetic
+    </div>
+
+  </div>
+
+  <!-- QUEEN CHARLOTTE -->
+
+  <div class="card" onclick="selectCharacter('Queen Charlotte')">
+
+    <img
+      src="https://images.openai.com/static-rsc-4/9_tAfRdzJsrT-p3My-JJ6XTbE50qTtv9MMJg0tIvu526AzkGTNcsB3ubsRi4K6iaHiiKNLvZNxPJcTOcC2pRDma1TNUrVOEb392kfK6T1DZJNIqUcEZZKJ0JIlAoeuVKQV9qOzdo1LEVQgoo6-Q2nJY0X93UrAY4cJ_Qc_MakSvQw9t7m6A3DM3cXOkqDnpP?purpose=fullsize"
+      class="character-img"
+    >
+
+    <div class="title">Queen Charlotte</div>
+
+    <div class="desc">
+      Dramatic royal luxury regalcore aesthetic
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+function selectCharacter(character){
+
+  localStorage.setItem("character", character);
+
+  window.location.href = "../suggestion.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

@@ -490,3 +490,436 @@ body.dark .cart-summary {
   background: green;
   padding: 10px 20px;
 }
+/* =====================================================
+   CARTLY.IN
+   NAVBAR + DARK MODE
+===================================================== */
+
+
+/* =====================================================
+   BASIC RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+
+    background: #f8f4f1;
+
+    color: #542b2b;
+
+    transition:
+        background 0.35s ease,
+        color 0.35s ease;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+
+    width: 100%;
+
+    height: 70px;
+
+    background: #1f1b1b;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 5%;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    box-shadow:
+        0 3px 15px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-family: Georgia, serif;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    color: #f8dfc5;
+
+    white-space: nowrap;
+}
+
+
+.logo span {
+    color: #f8dfc5;
+}
+
+
+/* =====================================================
+   NAVIGATION LINKS
+===================================================== */
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+}
+
+
+.nav-links a {
+
+    text-decoration: none;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.nav-links a:hover {
+
+    color: #e58ba3;
+
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   DARK MODE BUTTON
+===================================================== */
+
+.theme-toggle {
+
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #332727;
+
+    color: #ffffff;
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.theme-toggle:hover {
+
+    background: #713333;
+
+    transform: rotate(15deg) scale(1.08);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+
+    margin-top: 80px;
+
+    padding: 50px 20px;
+
+    text-align: center;
+
+    background: #1f1b1b;
+
+    color: white;
+}
+
+
+.footer-logo {
+
+    font-family: Georgia, serif;
+
+    font-size: 20px;
+
+    margin-bottom: 15px;
+
+    color: #f8dfc5;
+}
+
+
+.footer p {
+
+    margin: 10px 0;
+
+    color: #ddd;
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark-mode {
+
+    background: #171313;
+
+    color: #f8e9df;
+}
+
+
+/* Main headings */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4 {
+
+    color: #f6dfcf;
+}
+
+
+/* Normal paragraphs */
+
+body.dark-mode p {
+
+    color: #d8c6bd;
+}
+
+
+/* Navbar */
+
+body.dark-mode .navbar {
+
+    background: #0e0c0c;
+
+    box-shadow:
+        0 3px 18px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Main cards */
+
+body.dark-mode .card,
+body.dark-mode .product-card,
+body.dark-mode .wishlist-product {
+
+    background: #241c1c;
+
+    color: #f8e9df;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Product information */
+
+body.dark-mode .product-info h3,
+body.dark-mode .wishlist-info h3 {
+
+    color: #f5d8c6;
+}
+
+
+/* Product category */
+
+body.dark-mode .product-info span,
+body.dark-mode .wishlist-info span {
+
+    color: #c9aaa0;
+}
+
+
+/* Search */
+
+body.dark-mode input {
+
+    background: #2a2222;
+
+    color: #ffffff;
+
+    border-color: #5d4545;
+}
+
+
+body.dark-mode input::placeholder {
+
+    color: #bdaaa4;
+}
+
+
+/* Category cards */
+
+body.dark-mode .category-card {
+
+    background: #241c1c;
+
+    color: #f8e9df;
+}
+
+
+/* Empty states */
+
+body.dark-mode .wishlist-empty,
+body.dark-mode .cart-empty {
+
+    background: #241c1c;
+
+    color: #f8e9df;
+}
+
+
+/* Buttons */
+
+body.dark-mode button {
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* Footer */
+
+body.dark-mode .footer {
+
+    background: #0e0c0c;
+}
+
+
+/* =====================================================
+   DARK MODE TOGGLE ACTIVE
+===================================================== */
+
+body.dark-mode .theme-toggle {
+
+    background: #f2d4bd;
+
+    color: #342020;
+}
+
+
+/* =====================================================
+   RESPONSIVE NAVBAR
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .navbar {
+
+        padding: 0 20px;
+
+        height: 65px;
+    }
+
+
+    .logo {
+
+        font-size: 20px;
+    }
+
+
+    .nav-links {
+
+        gap: 12px;
+    }
+
+
+    .nav-links a {
+
+        font-size: 13px;
+    }
+
+
+    .theme-toggle {
+
+        width: 36px;
+
+        height: 36px;
+
+        font-size: 16px;
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .navbar {
+
+        padding: 0 12px;
+    }
+
+
+    .logo {
+
+        font-size: 18px;
+    }
+
+
+    .nav-links {
+
+        gap: 8px;
+    }
+
+
+    .nav-links a {
+
+        font-size: 12px;
+    }
+
+
+    .theme-toggle {
+
+        width: 32px;
+
+        height: 32px;
+    }
+
+}

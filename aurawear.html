@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AuraWear | Cartly.in</title>
+
+    <link rel="stylesheet" href="aurawear.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+        🛍️ Cartly.in
+    </a>
+
+    <nav class="nav-links">
+
+        <a href="index.html">🏠 Home</a>
+
+        <a href="wishlist.html">♡ Wishlist</a>
+
+        <a href="cart.html">🛒 Cart</a>
+
+        <button id="darkModeBtn" class="dark-mode-btn">
+            🌙
+        </button>
+
+    </nav>
+
+</header>
+
+
+<!-- =====================================================
+     AURAWEAR INTRO
+===================================================== -->
+
+<section class="aura-intro" id="intro">
+
+    <div class="aura-content">
+
+        <div class="aura-label">
+            <span>✨</span>
+            AURAWEAR
+        </div>
+
+        <h1>
+            Welcome to your
+            <span>style era.</span>
+        </h1>
+
+        <p class="aura-description">
+            Your clothes should feel like you.
+            Tell us your vibe and we'll curate looks around
+            your personality, lifestyle and fit preferences.
+        </p>
+
+        <button
+            class="aura-button"
+            id="startStyleBtn"
+            type="button"
+        >
+            ✨ Let's Find My Style →
+        </button>
+
+    </div>
+
+
+    <!-- =================================================
+         CLASSY AURAWEAR CIRCLE
+    ================================================== -->
+
+    <div class="aura-visual">
+
+        <div class="aura-ring"></div>
+
+        <div class="aura-circle">
+
+            <div class="aura-star">
+                ✦
+            </div>
+
+        </div>
+
+        <div class="aura-tag street">
+            STREET
+        </div>
+
+        <div class="aura-tag minimal">
+            MINIMAL
+        </div>
+
+        <div class="aura-tag classic">
+            CLASSIC
+        </div>
+
+        <div class="aura-sparkle sparkle-one">
+            ✨
+        </div>
+
+        <div class="aura-sparkle sparkle-two">
+            ✦
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     QUESTIONNAIRE
+===================================================== -->
+
+<main
+    class="questionnaire"
+    id="questionnaire"
+>
+
+    <!-- PROGRESS -->
+
+    <div class="progress-area">
+
+        <div class="progress-top">
+
+            <span id="stepText">
+                Step 1 of 7
+            </span>
+
+            <span id="progressPercent">
+                14%
+            </span>
+
+        </div>
+
+        <div class="progress-bar">
+
+            <div
+                class="progress-fill"
+                id="progressFill"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         STEP 1 — GENDER
+    ================================================== -->
+
+    <section
+        class="question-step active"
+        data-step="1"
+    >
+
+        <div class="step-number">
+            01
+        </div>
+
+        <h2>
+            First things first... 👀
+        </h2>
+
+        <p>
+            How do you want AuraWear to style you?
+        </p>
+
+        <div class="options">
+
+            <button
+                class="option"
+                data-question="gender"
+                data-value="Girl"
+            >
+                <span class="option-icon">🎀</span>
+
+                <strong>Girl</strong>
+
+                <small>
+                    Give me the girls' fashion energy
+                </small>
+            </button>
+
+
+            <button
+                class="option"
+                data-question="gender"
+                data-value="Guy"
+            >
+                <span class="option-icon">🧢</span>
+
+                <strong>Guy</strong>
+
+                <small>
+                    Keep it clean, cool & masculine
+                </small>
+            </button>
+
+
+            <button
+                class="option"
+                data-question="gender"
+                data-value="Unisex"
+            >
+                <span class="option-icon">✨</span>
+
+                <strong>Unisex</strong>
+
+                <small>
+                    Just give me good fits
+                </small>
+            </button>
+
+
+            <button
+                class="option"
+                data-question="gender"
+                data-value="Prefer not to say"
+            >
+                <span class="option-icon">🤍</span>
+
+                <strong>Prefer not to say</strong>
+
+                <small>
+                    Style me without labels
+                </small>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         STEP 2 — HEIGHT
+    ================================================== -->
+
+    <section
+        class="question-step"
+        data-step="2"
+    >
+
+        <div class="step-number">
+            02
+        </div>
+
+        <h2>
+            Let's get the proportions right 📏
+        </h2>
+
+        <p>
+            Don't stress — this is only to make your
+            recommendations better.
+        </p>
+
+        <div class="input-card">
+
+            <label for="height">
+                Your height
+            </label>
+
+            <div class="height-input">
+
+                <input
+                    type="number"
+                    id="height"
+                    min="100"
+                    max="230"
+                    placeholder="e.g. 165"
+                >
+
+                <span>cm</span>
+
+            </div>
+
+            <p class="input-hint">
+                Anywhere between 100–230 cm works.
+            </p>
+
+        </div>
+
+        <button
+            class="continue-btn"
+            data-next="2"
+        >
+            Continue →
+        </button>
+
+    </section>
+
+
+    <!-- =================================================
+         STEP 3 — BODY SHAPE
+    ================================================== -->
+
+    <section
+        class="question-step"
+        data-step="3"
+    >
+
+        <div class="step-number">
+            03
+        </div>
+
+        <h2>
+            What's your build like? 🧍
+        </h2>
+
+        <p>
+            Pick the one that feels closest.
+            No judgement — just better fits.
+        </p>
+
+        <div class="options four">
+
+            <button
+                class="option"
+                data-question="bodyShape"
+                data-value="Slim"
+            >
+                <span class="option-icon">🪶</span>
+                <strong>Slim</strong>
+                <small>Lean & lightweight</small>
+            </button>
+
+            <button
+                class="option"
+                data-question="bodyShape"
+                data-value="Athletic"
+            >
+                <span class="option-icon">🏃</span>
+                <strong>Athletic</strong>
+                <small>Balanced & active</small>
+            </button>
+
+            <button
+                class="option"
+                data-question="bodyShape"
+                data-value="Curvy"
+            >
+                <span class="option-icon">✨</span>
+                <strong>Curvy</strong>
+                <small>Soft & defined</small>
+            </button>
+
+            <button
+                class="option"
+                data-question="bodyShape"
+                data-value="Broad"
+            >
+                <span class="option-icon">🧥</span>
+                <strong>Broad</strong>
+                <small>Strong & structured</small>
+            </button>
+
+            <button
+                class="option"
+                data-question="bodyShape"
+                data-value="Average"
+            >
+                <span class="option-icon">🤍</span>
+                <strong>Average</strong>
+                <small>Balanced proportions</small>
+            </button>
+
+            <button
+                class="option"
+                data-question="bodyShape"
+                data-value="Not sure"
+            >
+                <span class="option-icon">🤷</span>
+                <strong>Not sure</strong>
+                <small>Surprise me</small>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         STEP 4 — FITNESS / LIFESTYLE
+    ================================================== -->
+
+    <section
+        class="question-step"
+        data-step="4"
+    >
+
+        <div class="step-number">
+            04
+        </div>
+
+        <h2>
+            What's your everyday vibe? 🏋️
+        </h2>
+
+        <p>
+            Because your clothes need to fit your actual life.
+        </p>
+
+        <div class="options">
+
+            <button
+                class="option"
+                data-question="fitness"
+                data-value="Gym"
+            >
+                <span class="option-icon">🏋️</span>
+
+                <strong>Gym / Fitness</strong>
+
+                <small>
+                    Active, sporty & performance-ready
+                </small>
+            </button>
+
+
+            <button
+                class="option"
+                data-question="fitness"
+                data-value="Home workouts"
+            >
+                <span class="option-icon">🏠</span>
+
+                <strong>Home workouts</strong>
+
+                <small>
+                    Comfy but still put together
+                </small>
+            </button>
+
+
+            <button
+                class="option"
+                data-question="fitness"
+                data-value="Casual lifestyle"
+            >
+                <span class="option-icon">☕</span>
+
+                <strong>Casual lifestyle</strong>
+
+                <small>
+                    Everyday comfort is the priority
+                </small>
+            </button>
+
+
+            <button
+                class="option"
+                data-question="fitness"
+                data-value="Very active"
+            >
+                <span class="option-icon">⚡</span>
+
+                <strong>Always on the move</strong>
+
+                <small>
+                    Practical fits for busy days
+                </small>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         STEP 5 — VIBE
+    ================================================== -->
+
+    <section
+        class="question-step"
+        data-step="5"
+    >
+
+        <div class="step-number">
+            05
+        </div>
+
+        <h2>
+            Okay... what's your vibe? ✨
+        </h2>
+
+        <p>
+            Pick the aesthetic that feels most like you.
+        </p>
+
+        <div class="options vibe-options">
+
+            <button
+                class="option"
+                data-question="vibe"
+                data-value="Street"
+            >
+                🖤 <strong>Street</strong>
+                <small>Oversized • Cool • Effortless</small>
+            </button>
+
+            <button
+                class="option"
+                data-question="vibe"
+                data-value="Minimal"
+            >
+                🤍 <strong>Minimal</strong>
+                <small>Clean • Neutral • Simple</small>
+            </button>
+
+            <button
+                class="option"
+                data-question="vibe"
+                data-value="Classic"
+            >
+                🤎 <strong>Classic</strong>
+                <small>Timeless • Polished • Elegant</small>
+            </button>
+
+            <button
+                class="option"
+                data-question="vibe"
+                data-value="Trendy"
+            >
+                🔥 <strong>Trendy</strong>
+                <small>Current • Bold • Fashion-forward</small>
+            </button>
+
+            <button
+                class="option"
+                data-question="vibe"
+                data-value="Casual"
+            >
+                🌿 <strong>Casual</strong>
+                <small>Relaxed • Easy • Everyday</small>
+            </button>
+
+            <button
+                class="option"
+                data-question="vibe"
+                data-value="Old Money"
+            >
+                💼 <strong>Old Money</strong>
+                <small>Quiet luxury • Refined</small>
+            </button>
+
+            <button
+                class="option"
+                data-question="vibe"
+                data-value="Edgy"
+            >
+                ⚡ <strong>Edgy</strong>
+                <small>Bold • Dark • Statement</small>
+            </button>
+
+            <button
+                class="option"
+                data-question="vibe"
+                data-value="Surprise"
+            >
+                ✨ <strong>Whatever looks good</strong>
+                <small>Surprise me</small>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         STEP 6 — FIT
+    ================================================== -->
+
+    <section
+        class="question-step"
+        data-step="6"
+    >
+
+        <div class="step-number">
+            06
+        </div>
+
+        <h2>
+            How do you like your fits? 👕
+        </h2>
+
+        <p>
+            Be honest. We won't judge.
+        </p>
+
+        <div class="options">
+
+            <button
+                class="option"
+                data-question="fit"
+                data-value="Oversized"
+            >
+                🧸 <strong>Oversized</strong>
+                <small>Baggy & comfy</small>
+            </button>
+
+            <button
+                class="option"
+                data-question="fit"
+                data-value="Regular"
+            >
+                👕 <strong>Regular</strong>
+                <small>Classic fit</small>
+            </button>
+
+            <button
+                class="option"
+                data-question="fit"
+                data-value="Fitted"
+            >
+                ✨ <strong>Fitted</strong>
+                <small>Sharp & structured</small>
+            </button>
+
+            <button
+                class="option"
+                data-question="fit"
+                data-value="Mix it up"
+            >
+                🔄 <strong>Mix it up</strong>
+                <small>Depends on the day</small>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         STEP 7 — SHOPPING PRIORITY
+    ================================================== -->
+
+    <section
+        class="question-step"
+        data-step="7"
+    >
+
+        <div class="step-number">
+            07
+        </div>
+
+        <h2>
+            One last thing... ☁️
+        </h2>
+
+        <p>
+            What matters most when you shop?
+        </p>
+
+        <div class="options">
+
+            <button
+                class="option"
+                data-question="priority"
+                data-value="Comfort"
+            >
+                🫶 <strong>Comfort</strong>
+                <small>
+                    If it isn't comfy, I don't want it.
+                </small>
+            </button>
+
+            <button
+                class="option"
+                data-question="priority"
+                data-value="Looks"
+            >
+                🔥 <strong>Looks</strong>
+                <small>
+                    I want the fit to SERVE.
+                </small>
+            </button>
+
+            <button
+                class="option"
+                data-question="priority"
+                data-value="Confidence"
+            >
+                👑 <strong>Confidence</strong>
+                <small>
+                    I want to feel amazing.
+                </small>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         FINAL BUTTON
+    ================================================== -->
+
+    <div class="final-action">
+
+        <button
+            id="createAuraBtn"
+            class="create-aura-btn"
+        >
+            ✨ Create My Aura →
+        </button>
+
+    </div>
+
+</main>
+
+
+<!-- =====================================================
+     RESULT
+===================================================== -->
+
+<section
+    class="aura-result"
+    id="auraResult"
+>
+
+    <div class="result-label">
+        ✨ YOUR AURA IS READY
+    </div>
+
+    <h2>
+        Your style era starts now.
+    </h2>
+
+    <p class="result-description">
+        We've mixed your vibe, proportions, lifestyle
+        and preferences into your personal AuraWear profile.
+    </p>
+
+
+    <div class="profile-grid">
+
+        <div class="profile-box">
+
+            <span>
+                Identity
+            </span>
+
+            <strong id="resultGender">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="profile-box">
+
+            <span>
+                Height
+            </span>
+
+            <strong id="resultHeight">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="profile-box">
+
+            <span>
+                Body Shape
+            </span>
+
+            <strong id="resultBody">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="profile-box">
+
+            <span>
+                Fitness
+            </span>
+
+            <strong id="resultFitness">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="profile-box">
+
+            <span>
+                Vibe
+            </span>
+
+            <strong id="resultVibe">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="profile-box">
+
+            <span>
+                Fit
+            </span>
+
+            <strong id="resultFit">
+                —
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="style-summary">
+
+        <div class="summary-icon">
+            ✨
+        </div>
+
+        <div>
+
+            <h3 id="summaryTitle">
+                Your Personal Style Era
+            </h3>
+
+            <p id="summaryText">
+                Your personalised style recommendations
+                are ready.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <button
+        id="exploreLooksBtn"
+        class="aura-button result-button"
+    >
+        ✨ Explore My Looks →
+    </button>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <h3>
+        🛍️ Cartly.in
+    </h3>
+
+    <p>
+        Shop your world. Find your style. ✨
+    </p>
+
+    <p class="copyright">
+        © 2026 Cartly.in
+    </p>
+
+</footer>
+
+
+<script src="aurawear.js"></script>
+
+</body>
+</html>

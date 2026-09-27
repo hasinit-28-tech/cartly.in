@@ -1,40 +1,463 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Wishlist</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wishlist | Cartly.in</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ================================
+           CARTLY WISHLIST PAGE
+        ================================= */
+
+        body {
+            margin: 0;
+            background: #f8f4f1;
+            color: #3b2525;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ---------- Navbar ---------- */
+
+        .navbar {
+            height: 68px;
+            background: #211d1d;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            box-sizing: border-box;
+            color: white;
+        }
+
+        .navbar h2 {
+            margin: 0;
+            color: #f6dfbd;
+            font-family: Georgia, serif;
+            font-size: 28px;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #d8899b;
+        }
+
+        .navbar .active {
+            color: #d8899b;
+        }
+
+        /* ---------- Heading ---------- */
+
+        .wishlist-header {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .wishlist-header h1 {
+            margin: 0;
+            font-family: Georgia, serif;
+            font-size: 46px;
+            color: #683636;
+        }
+
+        .wishlist-header h1 span {
+            color: #c56b82;
+        }
+
+        .wishlist-header p {
+            margin-top: 15px;
+            color: #987f7b;
+            font-size: 16px;
+        }
+
+        /* ---------- Wishlist Area ---------- */
+
+        #wishlist-container {
+            width: 90%;
+            max-width: 1250px;
+            margin: 50px auto 80px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        /* ---------- Product Card ---------- */
+
+        .wishlist-card {
+            background: white;
+            border-radius: 22px;
+            overflow: hidden;
+
+            box-shadow: 0 10px 30px rgba(80, 45, 45, 0.10);
+
+            transition: transform 0.3s ease,
+                        box-shadow 0.3s ease;
+        }
+
+        .wishlist-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 16px 35px rgba(80, 45, 45, 0.18);
+        }
+
+        .wishlist-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .wishlist-info {
+            padding: 22px;
+            text-align: center;
+        }
+
+        .wishlist-info h3 {
+            margin: 0 0 10px;
+            font-family: Georgia, serif;
+            font-size: 22px;
+            color: #5f3030;
+        }
+
+        .wishlist-price {
+            font-size: 19px;
+            font-weight: bold;
+            color: #c45470;
+            margin-bottom: 18px;
+        }
+
+        /* ---------- Buttons ---------- */
+
+        .wishlist-actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .add-cart-btn {
+            border: none;
+            background: #713838;
+            color: white;
+
+            padding: 12px 22px;
+            border-radius: 10px;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .add-cart-btn:hover {
+            background: #8e4a4a;
+            transform: translateY(-2px);
+        }
+
+        .remove-wishlist-btn {
+            border: 1px solid #d8899b;
+            background: #fff5f7;
+            color: #b84d68;
+
+            padding: 12px 15px;
+            border-radius: 10px;
+
+            cursor: pointer;
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .remove-wishlist-btn:hover {
+            background: #f8dce3;
+        }
+
+        /* ---------- Empty Wishlist ---------- */
+
+        .empty-wishlist {
+            grid-column: 1 / -1;
+
+            width: 100%;
+            max-width: 800px;
+
+            margin: 10px auto 40px;
+
+            background: white;
+            border-radius: 24px;
+
+            padding: 70px 30px;
+            box-sizing: border-box;
+
+            text-align: center;
+
+            box-shadow: 0 12px 35px rgba(80, 45, 45, 0.10);
+        }
+
+        .empty-heart {
+            font-size: 65px;
+            margin-bottom: 20px;
+        }
+
+        .empty-wishlist h2 {
+            margin: 0;
+            font-family: Georgia, serif;
+            font-size: 30px;
+            color: #603333;
+        }
+
+        .empty-wishlist p {
+            color: #987f7b;
+            font-size: 16px;
+            margin: 14px 0 28px;
+        }
+
+        .explore-btn {
+            display: inline-block;
+
+            background: #713838;
+            color: white;
+
+            padding: 14px 25px;
+            border-radius: 10px;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .explore-btn:hover {
+            background: #8e4a4a;
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="navbar">
-  <h2>🛒 Cartly.in</h2>
-  <div>
-    <a href="index.html">🏠 Home</a>
-    <a href="cart.html">🛍 Cart</a>
-    <button onclick="toggleDarkMode()">🌙</button>
-  </div>
-</div>
+    <!-- ================= NAVBAR ================= -->
 
-<h2>Your Wishlist</h2>
+    <div class="navbar">
 
-<div class="products" id="wishlist-container"></div>
+        <h2>🛍️ Cartly.in</h2>
 
-<script>
-let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-let container = document.getElementById("wishlist-container");
+        <div class="navbar-links">
 
-wishlist.forEach(item => {
-  container.innerHTML += `
-    <div class="card">
-      <img src="${item.image}">
-      <h3>${item.name}</h3>
-      <p>₹${item.price}</p>
+            <a href="index.html">
+                🏠 Home
+            </a>
+
+            <a href="wishlist.html" class="active">
+                ♡ Wishlist
+            </a>
+
+            <a href="cart.html">
+                🛒 Cart
+            </a>
+
+        </div>
+
     </div>
-  `;
-});
-</script>
 
-<script src="script.js"></script>
+
+    <!-- ================= HEADER ================= -->
+
+    <section class="wishlist-header">
+
+        <h1>
+            Your Wishlist <span>♡</span>
+        </h1>
+
+        <p>
+            Pieces you've saved for your next style moment ✨
+        </p>
+
+    </section>
+
+
+    <!-- ================= WISHLIST ================= -->
+
+    <div id="wishlist-container"></div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        let wishlist =
+            JSON.parse(localStorage.getItem("wishlist")) || [];
+
+        let container =
+            document.getElementById("wishlist-container");
+
+
+        /* =================================
+           EMPTY WISHLIST
+        ================================= */
+
+        if (wishlist.length === 0) {
+
+            container.innerHTML = `
+
+                <div class="empty-wishlist">
+
+                    <div class="empty-heart">
+                        💗
+                    </div>
+
+                    <h2>
+                        Your wishlist is empty
+                    </h2>
+
+                    <p>
+                        Save the pieces you love and
+                        come back to them anytime.
+                    </p>
+
+                    <a
+                        href="index.html"
+                        class="explore-btn"
+                    >
+                        Explore Collections →
+                    </a>
+
+                </div>
+
+            `;
+
+        }
+
+
+        /* =================================
+           DISPLAY WISHLIST PRODUCTS
+        ================================= */
+
+        else {
+
+            wishlist.forEach((item, index) => {
+
+                container.innerHTML += `
+
+                    <div class="wishlist-card">
+
+                        <img
+                            src="${item.image}"
+                            alt="${item.name}"
+                            class="wishlist-image"
+                        >
+
+                        <div class="wishlist-info">
+
+                            <h3>
+                                ${item.name}
+                            </h3>
+
+                            <div class="wishlist-price">
+                                ₹${item.price}
+                            </div>
+
+                            <div class="wishlist-actions">
+
+                                <button
+                                    class="add-cart-btn"
+                                    onclick="addToCart(${index})"
+                                >
+                                    🛒 Add to Cart
+                                </button>
+
+                                <button
+                                    class="remove-wishlist-btn"
+                                    onclick="removeWishlist(${index})"
+                                >
+                                    ♡ Remove
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            });
+
+        }
+
+
+        /* =================================
+           REMOVE FROM WISHLIST
+        ================================= */
+
+        function removeWishlist(index) {
+
+            wishlist.splice(index, 1);
+
+            localStorage.setItem(
+                "wishlist",
+                JSON.stringify(wishlist)
+            );
+
+            location.reload();
+
+        }
+
+
+        /* =================================
+           ADD TO CART
+        ================================= */
+
+        function addToCart(index) {
+
+            let cart =
+                JSON.parse(localStorage.getItem("cart")) || [];
+
+            let product = wishlist[index];
+
+            let existingProduct =
+                cart.find(item => item.name === product.name);
+
+            if (existingProduct) {
+
+                existingProduct.qty =
+                    (existingProduct.qty || 1) + 1;
+
+            } else {
+
+                cart.push({
+                    ...product,
+                    qty: 1
+                });
+
+            }
+
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(cart)
+            );
+
+            alert("Added to cart 🛍️");
+
+        }
+
+    </script>
 
 </body>
+
 </html>
